@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   function foo() {
+    function foo2() {
+        console.log(num3);
+    }
+    let num3 = 6;
+    foo2();
+    foo3();
+
+    let num2 = 3;
+    function foo3(num2) {
+        console.log(num2);
+        function foo4() {
+            let num = 2;
+            console.log(num);
+        }
+        foo4();
+    }
+
+    function foo5() {
+        console.log(num2);
+    }
+    foo5();
+}
+foo()
+</script>
+</html>

@@ -1,0 +1,109 @@
+@font-face {
+    font-family: PlaywriteAUSA;
+    src: url(./font/PlaywriteAUSA-VariableFont_wght.ttf) ;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#layer_btn {
+    display: none;
+}
+
+#layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: PlaywriteAUSA;
+    font-size: small;
+}
+
+#layer_btn:checked ~ #layer {
+    display: flex;
+}
+
+#layer > .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0 0;
+    background-color: #fff;
+}
+
+#layer>.content>.layer_header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.layer_header span label {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 50% ;
+    transform:  rotate(-50deg);
+}
+
+.layer_header span label::after,
+.layer_header span label::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    position: absolute;
+    right: 0;
+    transform: translateY(-50%)  rotate(45deg);
+    top: 50% ;
+}
+
+.layer_header span label::before {
+    transform: rotate(-45deg);
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.login-form form input[name="uid"],
+.login-form form input[name="upx"] {
+    width: 100%;
+    padding: 3px 6px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+.login-form form span {
+    margin-top: 14px;
+}
+
+.login-form form input[name="upx"] {
+    margin-bottom: 16px;
+}
+
+
+
+
+

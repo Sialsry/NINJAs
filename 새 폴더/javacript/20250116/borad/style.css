@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.border > li > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 80px;
+    border: 1px solid;
+
+}
+
+.border > li {
+    display: flex;
+}

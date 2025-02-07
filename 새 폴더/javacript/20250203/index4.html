@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // getWheather는 promise를 반환하는 함수
+    const getWeather = async (cityName) => {
+        // 내부의 기능을 동기적으로 호출해야 한다.
+        // 데이터를 가져오는 시간이 걸리기 때문에 잠시 데이터를 정상적으로 응답 받을때까지 대기
+        // 데이터를 가져와서 렌더링 하는 로직
+        const apiKey = "52dc1569aa06d854356e88b75b4767e5"
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`
+        const res = await fetch(url); // 데이터를 정상적으로 가져올때 까지
+        const data = await res.json();
+        console.log(data); // 데이터를 사용하는 부분이면
+    }
+    getWeather("Seoul");
+</script>
+</html>

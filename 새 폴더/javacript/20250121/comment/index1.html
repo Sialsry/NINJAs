@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <ul class="comment">
+        <li class="comment-form">
+            <form action="" id="comment-frm"> <!-- submit이벤트를 가지고 있는 태그 action 요청의 내용 get post-->
+            <h4>댓글 쓰기 <span>0</span></h4>
+            <span class="ps-box">
+                <input type="text" placeholder="댓글을 입력하세요" class="int" name="content">
+            </span>
+            <input type="submit" class="btn" value="등록">
+        </form>
+        <!--
+            form 이라는 특별한 기능을 가지고 있는 태그중 하나.
+            요청을 보낼수 있는 기능을 가지고 있다 submit 이벤트가 발생하면서 일어난다.
+
+            form 태그 안에서 중요한 역할을 하는 요소는 submit 버튼
+            input의 name 이라는 키가 서버에 우리가 데이터를 보낼때
+            데이터를 보내는 형태가 JSON `{content : 내 입력값}`
+        -->
+        </li>
+        <li id="comment-list">
+
+        </li>
+    </ul>
+</body>
+<script src="./index.js"></script>
+</html>

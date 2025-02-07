@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- javascript 요소에 클래스를 붙이는 형태-->
+    <input type="checkbox" id="layer_btn" checked>
+    <div id="layer">
+        <div class="content">
+            <div class="layer_header">
+                <h2>로그인</h2>
+                <span><label for="layer_btn"></label></span>
+            </div>
+            <div class="login-form">
+                <!-- form : input에 데이터의 객체로 요청을 보낼 수 있다. 예) login을 할때 아이디 비밀번호
+             데이터를 보냈을때 데이터의 이름 즉 키는 { uid : 123, upw : 000 }
+             get 데이터를 조회하는 방식중에 하나 
+             button submit으로 초기값이 되어있다. -->
+                <form action="get">
+                    <span>
+                        <label for="">USER ID</label>
+                        <input type="text" name="uid" placeholder="아이디를 입력하세요">
+                    </span>
+                    <span>
+                        <label for="">USER PASSWORD</label>
+                        <input type="text" name="upx" placeholder="비밀번호를 입력하세요">
+                    </span>
+                    <button type="button">로그인</button>
+                    <span>아직 회원가입을 안하셨나요? <a href="">회원가입</a></span>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="wrap">
+        <div id="header">
+            <h1>
+                logo
+            </h1>
+            <ul>
+                <li>
+                    <label for="layer_btn">menu</label>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- 원하는 폰트를 가지고 적용을 하고 팝업을 만드는데 팝업 안에 탭이 구현되어 있게 1번 탭에는 로그인 2번 탭에는 회원가입 3탭은 비워두고-->

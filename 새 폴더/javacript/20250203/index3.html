@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const promise = (text, time) => {
+        return new Promise((res, rej) => {
+            // try문 안의 내용에서 오류가 발생하면 catch문으로 넘어간다.
+            try {
+                setTimeout(() => {
+                    res(text)
+                }, time);
+            } catch (error) {
+                // try문 안의 코드의 에러가 발생하면 rej를 호출
+                rej(error)
+            }
+        })
+    }
+
+    // promise("text 1", 1000).then(result => {
+    //     console.log(result)
+    //     return promise("text 2", 3000);
+    // }).then((result) => {
+    //     console.log(result)
+    //     return promise("text 3", 1000);
+    // }).then((result) => {
+    //     console.log(result)
+    // })
+
+    const asyncFoo = async () => {
+        // 비동기 함수 안에서 코드의 내용이 동기적으로 실행되야 한다.
+        const data = await promise("text 1", 1000);
+        // 비동기로 실행되는 코드를 대기하고 완료되면 밑의 코드 실행
+        // await로 대기를 시켜서 동기적으로 코드를 호출할수 있게
+        console.log(data);
+    }
+    // 작성해도 큰 문제가 없는데 너무 없어 보이고 이해를 못했구나? 회사에서 상사나 동료가
+    // async await만 사용하거나 then catch만 사용하거나 둘중 하나 둘다 쓰면 안된다.
+    asyncFoo()
+
+</script>
+</html>

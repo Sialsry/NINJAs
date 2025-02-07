@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="nameForm">
+        <label for="">이름 입력</label>
+        <input type="text" name="input_name">
+        <button>이름 저장</button>
+    </form>
+    <div id="my_name"></div>
+</body>
+<script>
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const { input_name : { value } } = e.target;
+        // form 요소 객체의 input name이 키와 name을 가지고 있는 input 요소가 value 
+        // 구조분해 할당하고 한번 더
+        // input 요소 객체 안에는 입력값이 value
+        // 구조분해 할당에 : 구문은 오른쪽으로 값을 할당
+        console.log(value);
+        localStorage.setItem('name', value);
+
+    }
+
+    console.log(typeof localStorage.getItem('name'))
+    // 값이 있으면 true 없으면 false
+    if(localStorage.getItem('name')) {
+        my_name.innerHTML = localStorage.getItem('name');
+    }
+    // nameForm.onsubmit = submitHandler;
+    // 콜백 함수 전달
+    // addEventListener 이벤트 함수를 구독
+    // addEventListener 여러번 호출해서 이벤트를 등록하면 등록한 만큼 함수가 호출된다.
+    // removeEventListener 제거할때 함수의 주소를 알아야한다.
+    // nameForm.removeEventListener(submitHandler)
+    nameForm.addEventListener("submit", submitHandler);
+        // submit 이벤트 호출 도중에 실행 컨텍스트가 생성되고 실행되는 함수의 내용
+        // console.log("123")
+</script>
+</html>

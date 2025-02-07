@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.swiper-wrap {
+    width: 500px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.swiper {
+    z-index: 999;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.swiper-content {
+    width: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: 1s;
+    display: flex;
+    list-style: none;
+}
+
+.swiper-item {
+    width: 500px;
+    height: 100%;
+    border: 1px solid;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 180px;
+    user-select: none; 
+}
+
+.prev, .next {
+    position: absolute;
+    top:  50%;
+    transform: translateY(-50%);
+    width: 50px;
+    border: 1px solid; 
+}
+
+/*z-index : 요소의 순서를 결정한다 position 속성을 가지고 있는 요소들의 순서 */
+/*z-index : */
+.prev {
+    left: 5px;
+    z-index: 999;
+}
+
+.next {
+    right: 5px;
+    z-index: 999;
+}

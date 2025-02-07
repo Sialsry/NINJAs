@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.game-wrap {
+    display: flex;
+
+}
+
+.player-select,
+.com-select {
+    width: 73px;
+    height: 82px;
+    background-image: url("./image/가위바위보.webp");
+    border: 1px solid;
+    background-size: 266px;
+    background-position-x: 90px;
+    background-position-y: -4px;
+    background-repeat: no-repeat;
+}
+
+.scissors {
+    background-position-x: -21px;
+}
+
+.rock {
+    background-position-x: -94px;
+}
+
+.paper {
+    background-position-x: -171px;
+    background-position-y: -13px;
+}
+
+

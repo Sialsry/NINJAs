@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.popup-wrap {
+    width: 100vh;
+    height: 100vh;
+    position: relative;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+}
+
+.popup-wrap.is-active{
+    display: block;
+}

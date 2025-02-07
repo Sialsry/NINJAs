@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./과제.css">
+</head>
+
+<body>
+
+    <div id="tab_menu">
+           
+            <input type="radio" id="tab1" name="tabmenu">
+            <label for="tab1">로그인</label>
+            <input type="radio" id="tab2" name="tabmenu">
+            <label for="tab2">회원가입</label>
+            <input type="radio" id="tab3" name="tabmenu">
+            <label for="tab3">(업데이트중)</label>
+    
+    
+        <input type="checkbox" id="layer_btn" checked>
+        <div id="layer">
+            <div class="content">
+                <div class="layer_header">
+                    <h2>로그인</h2>
+                    <span><label for="layer_btn"></label></span>
+                </div>
+                <div class="login-form">
+                    <form action="get">
+                        <span>
+                            <label for="">USER ID</label>
+                            <input type="text" name="uid" placeholder="아이디를 입력하세요">
+                        </span>
+                        <span>
+                            <label for="">USER PASSWORD</label>
+                            <input type="text" name="upx" placeholder="비밀번호를 입력하세요">
+                        </span>
+                        <button type="button">로그인</button>
+                        <span>아직 회원가입을 안하셨나요? <a href="">회원가입</a></span>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <input type="checkbox" id="layer_btn2" checked>
+        <div id="layer2">
+            <div class="content2">
+                <div class="layer_header">
+                    <h2>회원가입</h2>
+                    <span><label for="layer_btn"></label></span>
+                </div>
+                <div class="login-form">
+                    <form action="get">
+                        
+                        <div>
+                            <label>아이디</label>
+                            <input type="text">
+                        </div>
+                    
+                        <div> 
+                            <label>비밀번호</label>
+                            <input type="password">
+                        </div>
+                    
+                        <span>
+                            <!-- 동일한 name 속성을 가진 라디오 버튼 -->
+                            <label>남자</label>
+                            <input type="radio" name="gender">
+                            
+                            <label>여자</label>
+                            <input type="radio" name="gender">
+                        </span>
+                        
+                    
+                        <div>
+                            <label>광고 수신을 동의 하시겠습니까? </label>
+                            <input type="checkbox">
+                        </div>
+                        <div>
+                            <label>생년 월일 </label>
+                            <input type="date">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

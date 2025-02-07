@@ -1,0 +1,180 @@
+/* 모바일 기준 기본 스타일 */
+/* 모바일 사이즈일때 */
+/* 스타일 시트 작성할때 tip */
+/* 최소 3뎁스 까지 사용하는게 좋다 가독성 이슈 */
+
+#wrap {
+    margin : 0;
+    padding : 0;
+}
+
+#wrap {
+    width: 100%;
+    min-height: 100vh;
+}
+
+#wrap .gnb {
+    height: 60px;
+    background-color: #444;
+    display: flex; /* 태그의 내용을 나열할때 정렬을 정의할때 사용한다. 요소의 display와 상관 없이 요소의 정렬을 정의한다. */
+    /* flax를 사용할때 사용할수 있는 속성 */
+    /* align-items : 상하의 명령을 관리할때 row 기준 colum 기준은 좌우가 바뀐다 */
+    /* justify-content : 좌우 정렬을 관리할때 row 기준  colum 기준은 상하가 바뀐다 */
+    align-items: center;
+    justify-content: space-between;
+}
+
+#wrap .logo {
+    color: white;
+    line-height: 32px; /* text의 높이를 정의 font-size에 맞게 지정해서 스타일 작업을 하는 것이 일반적 */
+}
+
+#wrap .gnb .gnb-button {
+    display: block;
+    width: 60px;
+    height: 60px;
+    position: relative; /* 본인의 위치를 기준으로 위치를 정의한다 */
+    cursor: pointer; /* 마우스를 요소의 위로 올렸을때 손가락 모양으로 변경 */
+}
+
+#wrap .gnb .user-icon {
+    width: 60px;
+    height: 60px;
+    position: relative;
+
+}
+
+.gnb .user-icon span:nth-child(1) {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    border: 5px solid white;
+    border-radius: 5px;
+}
+
+.gnb .user-icon span:nth-child(2) {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    border: 8px solid white;
+    border-radius: 4px 4px 0 0; /* 4방면을 적용하는 스타일들은 띄어쓰기로 구분해서 정의할수 있다. */
+    
+}
+
+.gnb .gnb-button span {
+    width: 20px;
+    height: 4px;
+    display: inline-block;
+    position: absolute; /* 부모 요소중에 relative를 가지고 있는 요소를 기준으로 */
+    background-color: white;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 본인 요소 기준으로 x축과 y축을 본인의 크기의 반지름 만큼 이동 */
+    border-radius: 1px ; /* 테두리를 얼마나 깎을지 테두리를 둥글게 적용할때 높이의 px 수치를 주면 원으로 깎을수 있다. */
+}
+/* 
+    nth-child() 선택자 : 자식의 순서를 괄호안에 작성해서 자식을 선택할 수 있다.
+    1부터 자식의 순서 
+
+    top 속성을 줬는데 bottom을 주면 bottom 속성은 정의 되지 않는다.
+    left, right 속성도 마찬가지
+*/
+
+.gnb .gnb-button span:nth-child(2) {
+    top: 24px;
+}
+
+.gnb .gnb-button span:nth-child(3) {
+    top: initial; /* 초기화 */
+    bottom: 20px;
+}
+
+#wrap > .notification {
+    width : calc(100% - 20%); /* calc는 값을 계산해서 값을 변환해준다. */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1.4px solid #333;
+}
+
+#wrap > .notification > i {
+    border: 4px solid rgb(174, 174, 242);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#wrap > .title {
+    width: calc(100% - 20px);
+    padding: 0 10px;
+    height: 65px;
+    border-bottom: 1.4px solid #333;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+#wrap > .content ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 50px);
+    height: 45px;
+    padding: 0 25px;
+    border-bottom: 1.4px solid #333;
+    box-shadow: 0 2px 9px -4px; /* 태그 요소의 그림자를 표현할때 x축 y축 흐림도 분배도 */
+}
+
+.content ul li {
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+#wrap > .card-warp {
+    background-color: #e5e4e4;
+    padding: 20px 10px;
+    min-height: calc(100vh - 263px);
+}
+
+#wrap > .card-warp > .card {
+    width: 100%;
+    height: max-content;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden; /* 부모 요소 영역 밖으로 자식이 벗어나면 벗어난 영역을 지워준다 */
+}
+
+#wrap > .card-warp > .img {
+    width: 100%;
+}
+
+.card-warp > .card > h3 {
+    padding: 14px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid;
+} 
+
+.card-warp > .card > .views {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 10px;
+} 
+
+
+/* 모바일 사이즈 이상으로 넘어가면 */
+
+@media only screen and (min-width : 768px) {
+    #wrap {
+        width: 100%;
+        background-color: red;
+        min-height: 100vh;
+    }
+     
+}
