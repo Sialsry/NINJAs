@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const arr = JSON.parse(localStorage.getItem("images")) || [];
     const words = [
         "사과", "바다", "비행기", "로봇", "나무", "자동차", "강아지", "고양이", "책",
         "별", "해바라기", "코끼리", "기차", "우산", "잠자리", "사자", "연필", "토끼",
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.width = 500;
     canvas.height = 400;
     canvas.style.border = "2px solid black";
-
+    
     // 초기 설정
     let drawing = false;
     let lastX = 0, lastY = 0;
@@ -35,7 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let lineWidth = 5; // 기본 선 굵기
     let hue = 0; // 무지개 색상 변수
 
+    let FirstClick = true;
+
     button.onclick = () => {
+        if (FirstClick) {
+            FirstClick = false;
+        } else {
+            
+        const confirmChange = confirm("제시어를 변경하시겠습니까?");
+
+        if (!confirmChange) return;
+        }
         const randomWord = words[Math.floor(Math.random() * words.length)];
         result.innerHTML = `당신의 제시어는 "<strong>${randomWord}</strong>" 입니다!`;
     };
@@ -131,11 +142,30 @@ document.addEventListener("DOMContentLoaded", () => {
     alleraserBtn.onclick = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height); 
     };
-});
 
-document.querySelector('.submit').onclick =() => {
-    window.location.href = `./메인페이지/메인페이지.html`
-}
+    class CanvasImage {
+        constructor(index, src, word) {
+            this.index = index;
+            this.src = src;
+            this.word = word;
+        }
+    }
+
+    document.querySelector('.submit').onclick = () => {
+        const resultElement = document.getElementById("result");
+        let randomWord = resultElement.innerText.trim();
+        console.log(arr);
+        randomWord = randomWord.replace(/당신의 제시어는\s*"(.+?)"\s*입니다!/, '$1');
+        if (!randomWord) { 
+            alert("제시어를 뽑고 그림을 그려주세요.");
+            return;
+        }
+        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord));
+        localStorage.setItem('images', JSON.stringify(arr));
+        
+        window.location.href = `./메인페이지/메인페이지.html`;
+    }
+});
 
 document.querySelector('#exit-container').onclick =() => {
     window.location.href = `./메인페이지/메인페이지.html`

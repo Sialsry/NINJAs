@@ -1,0 +1,188 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+img {
+    max-width: 500px;
+    max-height: 500px;
+    border: 3px solid #000;
+}
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: blue;
+}
+
+* {
+margin: 0;
+padding: 0;
+}
+
+ul, li {
+list-style: none;
+}
+
+.comment {
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+padding: 30px;
+width: 600px;
+margin: 0 auto;
+}
+
+.comment > li {
+margin-top: 20px;
+}
+
+.comment > li:nth-child(1) {
+margin: 0;
+}
+
+.comment .comment-form > form > h4 {
+width: 100%;
+margin: 14px 0;
+}
+
+.comment-form > form {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.ps-box {
+display: block;
+position: relative;
+width: 80%;
+height: 50%;
+border: 1px solid #777;
+padding: 10px 14px;
+background-color: #888;
+box-sizing: border-box;
+}
+
+.ps-box > input {
+outline: none;
+}
+
+.int {
+display: block;
+position: relative;
+width: 100%;
+height: 30px;
+padding: 0 6px;
+line-height: 30px;
+font-size: 15px;
+box-sizing: border-box;
+}
+
+.btn {
+width: 20%;
+padding: 18px 0 16px;
+text-align: center;
+box-sizing: border-box;
+text-decoration: none;
+border: none;
+background-color: #333;
+color: white;
+font-size: 14px;
+}
+
+.comment-row {
+width: 100%;
+display: flex;
+height: 50px;
+padding: 3px 6px;
+}
+
+.comment-row li {
+border: 1px solid;
+padding: 20px 0;
+text-overflow: ellipsis;
+white-space: nowrap;
+word-wrap: break-word;
+overflow: hidden;
+}
+
+.comment-row li:nth-child(1) {
+width: 15%;
+text-align: center;
+}
+.comment-row li:nth-child(2) {
+width: 50%;
+padding: 20px 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.comment-row li:nth-child(3) {
+width: 35%;
+text-align: center;
+}
+
+
+
+
+.comment-update-btn {
+width: 250px;
+display: inline-block;
+
+text-overflow: ellipsis;
+white-space: nowrap;
+word-wrap: break-word;
+overflow: hidden;
+}
+
+
+.comment-delete-btn {
+position: relative;
+width: 24px;
+height: 24px;
+display: inline-block;
+}
+
+.comment-delete-btn::before,
+.comment-delete-btn::after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: red;
+top: 50%;
+left: 50%;
+border-radius: 2px;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.comment-delete-btn::before {
+transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.comment-update-cancel {
+position: relative;
+width: 24px;
+height: 24px;
+display: inline-block;
+}
+
+.comment-update-cancel::before,
+.comment-update-cancel::after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: blue;
+top: 50%;
+left: 50%;
+border-radius: 2px;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.comment-update-cancel::after {
+transform: translate(-50%, -50%) rotate(45deg);
+}
