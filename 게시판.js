@@ -13,7 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 색상 버튼
     const blackBtn = document.getElementById("black");
-    const whiteBtn = document.getElementById("white");
+    const redBtn = document.getElementById("red");
+    const orangeBtn = document.getElementById("orange");
+    const greenBtn = document.getElementById("green");
+    const blueBtn = document.getElementById("blue");
+    const yellowBtn = document.getElementById("yellow");
+    const violetBtn = document.getElementById("violet");
     const eraserBtn = document.getElementById("eraser");
     const sizeInput = document.getElementById("size"); // 선 굵기 조절
 
@@ -79,10 +84,36 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.lineWidth = lineWidth; // 기존 펜 두께 유지
     };
 
-    whiteBtn.onclick = () => {
-        color = "white";
-        ctx.lineWidth = lineWidth; // 기존 펜 두께 유지
+    redBtn.onclick = () => {
+        color = "red";
+        ctx.lineWidth = lineWidth; 
     };
+
+    blueBtn.onclick = () => {
+        color = "blue";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    orangeBtn.onclick = () => {
+        color = "orange";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    yellowBtn.onclick = () => {
+        color = "yellow";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    greenBtn.onclick = () => {
+        color = "green";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    violetBtn.onclick = () => {
+        color = "violet";
+        ctx.lineWidth = lineWidth; 
+    };
+
 
     // 지우개 기능 (배경색과 동일한 색상으로 변경 & 두께 증가)
     eraserBtn.onclick = () => {
