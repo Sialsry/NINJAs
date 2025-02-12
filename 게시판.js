@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const yellowBtn = document.getElementById("yellow");
     const violetBtn = document.getElementById("violet");
     const eraserBtn = document.getElementById("eraser");
-    const sizeInput = document.getElementById("size"); // 선 굵기 조절
+    const alleraserBtn = document.getElementById("all_eraser");
+    const sizeInput = document.getElementById("size"); 
 
     // 캔버스 크기 설정
     canvas.width = 500;
@@ -126,4 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
         lineWidth = event.target.value;
         ctx.lineWidth = lineWidth; // 실시간으로 선 굵기 변경
     });
+
+    alleraserBtn.onclick = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    };
 });
+
+
