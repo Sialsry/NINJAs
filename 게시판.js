@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const arr = JSON.parse(localStorage.getItem("images")) || [];
     const words = [
         "사과", "바다", "비행기", "로봇", "나무", "자동차", "강아지", "고양이", "책",
         "별", "해바라기", "코끼리", "기차", "우산", "잠자리", "사자", "연필", "토끼",
@@ -95,8 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
         lineWidth = event.target.value;
         ctx.lineWidth = lineWidth; // 실시간으로 선 굵기 변경
     });
-});
 
-document.querySelector('.submit').onclick =() => {
-    window.location.href = `./메인페이지/메인페이지.html`
-}
+    
+    class CanvasImage {
+        constructor(index, src) {
+            this.index = index;
+            this.src = src;
+        }
+    }
+    
+    document.querySelector('.submit').onclick =() => {
+        console.log(arr);
+        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL()));
+        localStorage.setItem('images', JSON.stringify(arr));
+        window.location.href = `./메인페이지/메인페이지.html`
+    }
+});
