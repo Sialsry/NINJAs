@@ -32,18 +32,37 @@
 </body>
     <script>
         // URL에서 이미지 경로 가져오기
-        console.log(window.location.search);
+        // console.log(window.location.search);
         function getQueryParam(name) {
             const urlParams = new URLSearchParams(window.location.search);
+            console.dir(urlParams);
             return urlParams.get(name);
         }
 
         const imageSrc = getQueryParam("image");
 
+        // if (imageSrc) {
+        //     const images = JSON.parse(localStorage.getItem("images")) || [];
+        //     console.log(images);
+        //     const selectedImage = images.find(img => img.index === imageSrc);
+        //     console.log(selectedImage);
+        //     if (selectedImage) {
+        //         document.getElementById("displayedImage").src = selectedImage.src;
+        //     } else {
+        //         document.getElementById("displayedImage").alt = "No image found.";
+        //     }
+        // } else {
+        //     document.getElementById("displayedImage").alt = "No image selected.";
+        // }
+
         if (imageSrc) {
-            document.getElementById("displayedImage").src = decodeURIComponent(imageSrc);
+            // document.getElementById("displayedImage").src = decodeURIComponent(imageSrc);
+            const images = JSON.parse(localStorage.getItem("images")) || [];
+            document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src
+            console.log(images)
+            console.log(imageSrc)
         } else {
             document.getElementById("displayedImage").alt = "No image selected.";
         }
-    </script>
+        </script>
 </html>
