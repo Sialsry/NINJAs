@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        .gallery {
+            display: flex;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border: 2px solid #ccc;
+        }
+        .gallery img:hover {
+            border-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <h2>Click an image to view it on the next page</h2>
+    <div class="gallery">
+        <img src="제목 없음.png" onclick="viewImage('제목 없음.png')" alt="Image 1">
+        <img src="image2.jpg" onclick="viewImage('image2.jpg')" alt="Image 2">
+        <img src="image3.jpg" onclick="viewImage('image3.jpg')" alt="Image 3">
+        <img src="image4.jpg" onclick="viewImage('image4.jpg')" alt="Image 4">
+        <img src="image5.jpg" onclick="viewImage('image5.jpg')" alt="Image 5">
+    </div>
+
+    <script>
+        function viewImage(imageSrc) {
+            // 클릭한 이미지의 경로를 쿼리 스트링에 추가하여 이동
+            window.location.href = "display.html?image=" + encodeURIComponent(imageSrc);
+        }
+    </script>
+</body>
+</html>
