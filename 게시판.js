@@ -14,9 +14,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 색상 버튼
     const blackBtn = document.getElementById("black");
-    const whiteBtn = document.getElementById("white");
+    const redBtn = document.getElementById("red");
+    const orangeBtn = document.getElementById("orange");
+    const greenBtn = document.getElementById("green");
+    const blueBtn = document.getElementById("blue");
+    const yellowBtn = document.getElementById("yellow");
+    const violetBtn = document.getElementById("violet");
     const eraserBtn = document.getElementById("eraser");
-    const sizeInput = document.getElementById("size"); // 선 굵기 조절
+    const alleraserBtn = document.getElementById("all_eraser");
+    const sizeInput = document.getElementById("size"); 
 
     // 캔버스 크기 설정
     canvas.width = 500;
@@ -80,10 +86,36 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.lineWidth = lineWidth; // 기존 펜 두께 유지
     };
 
-    whiteBtn.onclick = () => {
-        color = "white";
-        ctx.lineWidth = lineWidth; // 기존 펜 두께 유지
+    redBtn.onclick = () => {
+        color = "red";
+        ctx.lineWidth = lineWidth; 
     };
+
+    blueBtn.onclick = () => {
+        color = "blue";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    orangeBtn.onclick = () => {
+        color = "orange";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    yellowBtn.onclick = () => {
+        color = "yellow";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    greenBtn.onclick = () => {
+        color = "green";
+        ctx.lineWidth = lineWidth; 
+    };
+
+    violetBtn.onclick = () => {
+        color = "violet";
+        ctx.lineWidth = lineWidth; 
+    };
+
 
     // 지우개 기능 (배경색과 동일한 색상으로 변경 & 두께 증가)
     eraserBtn.onclick = () => {
@@ -97,7 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.lineWidth = lineWidth; // 실시간으로 선 굵기 변경
     });
 
-    
+    alleraserBtn.onclick = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    };
+
     class CanvasImage {
         constructor(index, src) {
             this.index = index;
@@ -112,3 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = `./메인페이지/메인페이지.html`
     }
 });
+document.querySelector('#exit-container').onclick =() => {
+    window.location.href = `./메인페이지/메인페이지.html`
+}
+
+
+// document.querySelector('.submit').onclick =() => {
+//     window.location.href = `./메인페이지/메인페이지.html`
+// }

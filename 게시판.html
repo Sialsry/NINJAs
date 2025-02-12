@@ -8,20 +8,30 @@
     <link rel="stylesheet" href="./게시판.css">
 </head>
 <body>
+    <div id="exit-container">
+        <img id="exit-logo" src="./images/‘DALL·E 2025-02-12 10.19.08 - A hand-drawn style ninja logo with a sketch-like appearance, resembling something drawn in a simple digital painting app. The ninja should have a play’의 배경이 제거됨.png" alt="">
+        <button id="exit_btn">나가기</button>
+    </div>
     <button id="C_btn">제시어 뽑기</button>
     <p id="result"></p>
 
-    <div>
-        <button id="black">검은색</button>
-        <button id="white">하얀색</button>
-        <button id="eraser"><i class="fa-solid fa-eraser"></i></button>
+    <div class="colors">
+        <button id="black" style="background-color: black ;"></button>
+        <button id="red" style="background-color: red ;"></button>
+        <button id="orange" style="background-color: orange ;"></button>
+        <button id="yellow" style="background-color: yellow ;"></button>
+        <button id="green" style="background-color: green ;"></button>
+        <button id="blue" style="background-color: blue ;"></button>
+        <button id="violet" style="background-color: violet ;"></button>
+        <button id="eraser" ><i class="fa-solid fa-eraser"></i></button>
+        <button id="all_eraser" >전체 지우기</i></button>
     </div>
 
     <label for="size">펜 두께:</label>
     <input type="range" id="size" min="1" max="50" value="5">
 
     <canvas id="Canvas"></canvas>
-    <div class="submit">그림 올리기</div>
+    <button class="submit">그림 올리기</button>
 
     <script src="./게시판.js"></script>
 </body>
