@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Image</title>
+    <link rel="stylesheet" href="./그림감상페이지.css">
+</head>
+<body>
+    <div class="container">
+        <h2>그림을 맞춰 보세요</h2>
+        <img id="displayedImage" src="" alt="Selected">
+        <a href="../메인페이지/메인페이지.html">Back to Gallery</a>
+    </div>
+    <ul class="comment">
+        <li class="comment-form">
+            <form action="" id="comment-frm">
+            <h4>댓글 쓰기<span>0</span></h4>
+            <span class="ps-box">
+                <input type="text" placeholder="댓글을 입력하세요" class="int" name="content">
+            </span>
+            <input type="submit" class="btn" value="등록">
+        </form>
+        </li>
+        <li id="comment-list">
+        </li>
+    </ul>
+</body>
+    <script src="./그림감상페이지.js"></script>
+</html>
