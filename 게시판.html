@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그림 그리기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./게시판.css">
+</head>
+<body>
+    <button id="C_btn">제시어 뽑기</button>
+    <p id="result"></p>
+
+    <div>
+        <button id="black">검은색</button>
+        <button id="white">하얀색</button>
+        <button id="eraser"><i class="fa-solid fa-eraser"></i></button>
+    </div>
+
+    <label for="size">펜 두께:</label>
+    <input type="range" id="size" min="1" max="50" value="5">
+
+    <canvas id="Canvas"></canvas>
+
+    <script src="./게시판.js"></script>
+</body>
+</html>
