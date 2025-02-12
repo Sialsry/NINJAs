@@ -96,3 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.lineWidth = lineWidth; // 실시간으로 선 굵기 변경
     });
 });
+
+document.querySelector('.submit').onclick =() => {
+    window.location.href = `./메인페이지/메인페이지.html`
+}
