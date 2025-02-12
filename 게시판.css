@@ -1,0 +1,31 @@
+body {
+    text-align: center;
+}
+
+#result {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+canvas {
+    margin-right: 150px;
+    margin-top: 10px;
+    cursor: crosshair;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#eraser {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+#eraser i {
+    font-size: 20px;
+}
