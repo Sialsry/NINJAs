@@ -136,3 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.querySelector('.submit').onclick =() => {
     window.location.href = `./메인페이지/메인페이지.html`
 }
+
+document.querySelector('#exit-container').onclick =() => {
+    window.location.href = `./메인페이지/메인페이지.html`
+}
