@@ -4,65 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Image</title>
-    <style>
-        .container {
-            text-align: center;
-            margin-top: 50px;
-        }
-        img {
-            max-width: 500px;
-            max-height: 500px;
-            border: 3px solid #000;
-        }
-        a {
-            display: block;
-            margin-top: 20px;
-            text-decoration: none;
-            font-size: 18px;
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="./그림감상페이지.css">
 </head>
 <body>
     <div class="container">
-        <h2>Selected Image</h2>
+        <h2>그림을 맞춰 보세요</h2>
         <img id="displayedImage" src="" alt="Selected">
         <a href="메인페이지/메인페이지.html">Back to Gallery</a>
     </div>
+    <ul class="comment">
+        <li class="comment-form">
+            <form action="" id="comment-frm">
+            <h4>댓글 쓰기<span>0</span></h4>
+            <span class="ps-box">
+                <input type="text" placeholder="댓글을 입력하세요" class="int" name="content">
+            </span>
+            <input type="submit" class="btn" value="등록">
+        </form>
+        </li>
+        <li id="comment-list">
+        </li>
+    </ul>
 </body>
-    <script>
-        // URL에서 이미지 경로 가져오기
-        // console.log(window.location.search);
-        function getQueryParam(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            console.dir(urlParams);
-            return urlParams.get(name);
-        }
-
-        const imageSrc = getQueryParam("image");
-
-        // if (imageSrc) {
-        //     const images = JSON.parse(localStorage.getItem("images")) || [];
-        //     console.log(images);
-        //     const selectedImage = images.find(img => img.index === imageSrc);
-        //     console.log(selectedImage);
-        //     if (selectedImage) {
-        //         document.getElementById("displayedImage").src = selectedImage.src;
-        //     } else {
-        //         document.getElementById("displayedImage").alt = "No image found.";
-        //     }
-        // } else {
-        //     document.getElementById("displayedImage").alt = "No image selected.";
-        // }
-
-        if (imageSrc) {
-            // document.getElementById("displayedImage").src = decodeURIComponent(imageSrc);
-            const images = JSON.parse(localStorage.getItem("images")) || [];
-            document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src
-            console.log(images)
-            console.log(imageSrc)
-        } else {
-            document.getElementById("displayedImage").alt = "No image selected.";
-        }
-        </script>
+    <script src="./그림감상페이지.js"></script>
 </html>
