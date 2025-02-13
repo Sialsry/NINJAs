@@ -40,7 +40,12 @@ arr.forEach((e) => {
     const img = document.createElement('img');
     img.src = e.src;
     img.onclick = () => viewImage(e.index);
-    images_content.appendChild(img);    
+    // console.log(JSON.parse(localStorage.getItem('images'))[e.index-1])
+    if (JSON.parse(localStorage.getItem('images'))[e.index-1].stat === true) {
+        completed_images_content.appendChild(img);
+    } else if (JSON.parse(localStorage.getItem('images'))[e.index-1].stat === false) {
+        images_content.appendChild(img);
+    }    
 })
 
 

@@ -56,7 +56,7 @@ const signinPopup = () => {
 
             <button id="register_btn">가입하기</button>
             <button id="close_popup">닫기</button>
-        </div>
+        </div>  
     `;
 
     document.body.appendChild(popup);
@@ -108,14 +108,14 @@ const signinPopup = () => {
             idError.style.display = "none";
         }
     });
+    const point = 0
+    const stat = false
 
     document.getElementById("register_btn").addEventListener("click", () => {
         const nickname = userNickInput.value.trim();
         const userid = userIdInput.value.trim();
         const password = passwordInput.value.trim();
         const confirmPassword = confirmPasswordInput.value.trim();
-        const point = 0
-        const stat = false
 
         // 모든 값을입력해야됨
         if (!nickname || !userid || !password || !confirmPassword) {
@@ -191,8 +191,9 @@ const loginUser = () => {
     const userData = {
         nickname: validUser.nickname,
         id: validUser.id,
-        password: validUser.password 
-
+        password: validUser.password, 
+        point: 0,
+        stat: false
     };
 
     document.cookie = `loggedInUser=${encodeURIComponent(JSON.stringify(userData))}; path=/;`;

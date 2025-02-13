@@ -10,11 +10,21 @@ if (imageSrc) {
     // const images = JSON.parse(localStorage.getItem("images")) || [];
     document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src
     document.querySelector('.drawer').innerHTML = `${images[parseInt(imageSrc)-1].drawer} 님의 그림 무슨 그림일까요?`
+    document.querySelector('.explain').innerHTML = `${images[parseInt(imageSrc)-1].explanation}`
 } else {
     document.getElementById("displayedImage").alt = "No image selected.";
 }
 
 
+
+
+
+
+
+
+if (localStorage.getItem('users')) {
+    
+}
 
 
 
@@ -81,19 +91,31 @@ const submitHandler = (e) => {
     console.log(userData)
     const newPoint = JSON.parse(localStorage.getItem('users'))
     console.log(newPoint)
-
+    
+    
+    
     if (userData.id === images[parseInt(imageSrc)-1].drawer) {
         alert('글을 그린 사람은 댓글을 입력할 수 없습니다')
         console.log('gfhgfgf',userData)
     } else {
-      if (value === images[parseInt(imageSrc)-1].word) {
-          alert('정답입니다! 100포인트 획득.')
-          console.log(newPoint)
-      } else {
-        e.preventDefault();
-        addState(value);
-        drawing();
-        e.target.content.value = ""
+        if (value === images[parseInt(imageSrc)-1].word) {
+            alert('정답입니다! 100포인트 획득.')
+            for (let i = 0; i < newPoint.length; i++) {
+                if (userData.id === newPoint[i].id) {
+                    newPoint[i].point += 100
+                    localStorage.setItem('users', JSON.stringify(newPoint))
+                }
+            }
+            const newStat = JSON.parse(localStorage.getItem('images'))
+            newStat[parseInt(imageSrc)-1].stat = true
+            localStorage.setItem('images', JSON.stringify(newStat))
+            // localStorage.setItem('images', JSON.stringify(images))
+
+        } else {
+            e.preventDefault();
+            addState(value);
+            drawing();
+            e.target.content.value = ""
       }
     }
 }    

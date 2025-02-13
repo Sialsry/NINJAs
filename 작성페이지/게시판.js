@@ -186,12 +186,13 @@ console.log(cookieArr)
 
 
     class CanvasImage {
-        constructor(index, src, word, drawer, explanation) {
+        constructor(index, src, word, drawer, explanation, stat) {
             this.index = index;
             this.src = src;
             this.word = word;
             this.drawer = drawer
             this.explanation = explanation;
+            this.stat = stat;
         }
     }
 
@@ -208,7 +209,7 @@ console.log(cookieArr)
             return;
         }
 
-        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord, cookieArr[1][1], explanationText));
+        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord, cookieArr[1][1], explanationText, false));
         localStorage.setItem('images', JSON.stringify(arr));
 
         explanation.value = "";
