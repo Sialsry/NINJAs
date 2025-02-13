@@ -38,7 +38,6 @@ return result;
 const userDataStr = getCookie("loggedInUser");
 const userData = userDataStr ? JSON.parse(userDataStr) : null;
 const cookieArr = Object.entries(userData);
-console.log(cookieArr[0][1])
 
 // --------------------------------------------------------------아래로 댓글 영역
 // const loginedUser = JSON.parse(localStorage.getItem("users")) || []
@@ -67,20 +66,29 @@ class Comment {
 
 const drawer = JSON.parse(localStorage.getItem('images'))
 
-console.log(drawer[0])
-const drawer2 = Object.entries(drawer[0])
-console.log(drawer2[3][1])
+// console.log(drawer[0])
+// const drawer2 = Object.entries(drawer[0])
+// console.log(drawer2[3][1])
 
 
 
 const submitHandler = (e) => {
+    const userDataStr = getCookie("loggedInUser");
+    const userData = userDataStr ? JSON.parse(userDataStr) : null;
     let {value} = e.target.content // const value = e.target.content.value
-    if (user.uid === images[parseInt(imageSrc)-1].drawer) {
+    console.log(user.id)
+    console.log(images[parseInt(imageSrc)-1].drawer)
+    console.log(userData)
+    const newPoint = JSON.parse(localStorage.getItem('users'))
+    console.log(newPoint)
+
+    if (userData.id === images[parseInt(imageSrc)-1].drawer) {
         alert('글을 그린 사람은 댓글을 입력할 수 없습니다')
-        
+        console.log('gfhgfgf',userData)
     } else {
       if (value === images[parseInt(imageSrc)-1].word) {
           alert('정답입니다! 100포인트 획득.')
+          console.log(newPoint)
       } else {
         e.preventDefault();
         addState(value);

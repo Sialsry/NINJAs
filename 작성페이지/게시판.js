@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const arr = JSON.parse(localStorage.getItem("images")) || [];
+
     const words = [
         "사과", "바다", "비행기", "로봇", "나무", "자동차", "강아지", "고양이", "책",
         "별", "해바라기", "코끼리", "기차", "우산", "잠자리", "사자", "연필", "토끼",
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = document.getElementById("result");
     const canvas = document.getElementById("Canvas");
     const ctx = canvas.getContext("2d");
+    const explanation = document.getElementById("explanation");
 
     // 색상 버튼
     const blackBtn = document.getElementById("black");
@@ -49,6 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         const randomWord = words[Math.floor(Math.random() * words.length)];
         result.innerHTML = `당신의 제시어는 "<strong>${randomWord}</strong>" 입니다!`;
+
+        explanation.value = "";
+
     };
 
     // 마우스 누르면 그리기 시작
@@ -95,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         color = "black";
         ctx.lineWidth = lineWidth; // 기존 펜 두께 유지
     };
-    
+
     redBtn.onclick = () => {
         color = "red";
         ctx.lineWidth = lineWidth; 
@@ -105,95 +110,122 @@ document.addEventListener("DOMContentLoaded", () => {
         color = "blue";
         ctx.lineWidth = lineWidth; 
     };
-    
+
     orangeBtn.onclick = () => {
         color = "orange";
         ctx.lineWidth = lineWidth; 
     };
-    
+
     yellowBtn.onclick = () => {
         color = "yellow";
         ctx.lineWidth = lineWidth; 
     };
-    
+
     greenBtn.onclick = () => {
         color = "green";
         ctx.lineWidth = lineWidth; 
     };
-    
+
     violetBtn.onclick = () => {
         color = "violet";
         ctx.lineWidth = lineWidth; 
     };
 
-    
+
     // 지우개 기능 (배경색과 동일한 색상으로 변경 & 두께 증가)
     eraserBtn.onclick = () => {
         color = "white";
         ctx.lineWidth = lineWidth * 3; // 지우개 크기를 기존보다 3배 키움
     };
-    
+
     // 선 굵기 변경 이벤트
     sizeInput.addEventListener("input", (event) => {
         lineWidth = event.target.value;
         ctx.lineWidth = lineWidth; // 실시간으로 선 굵기 변경
     });
-    
+
     alleraserBtn.onclick = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height); 
     };
-    
-    // 사용자 정보 가져오기
-    const getCookie = (name) => {
-        let cookies = document.cookie.split("; ");
-        let result;
-    
-        for (let i = 0; i < cookies.length; i++) {
-            let [key, value] = cookies[i].split("="); // 배열 분해 할당
-            if (name === key.trim()) { 
-                result = decodeURIComponent(value);
-                break; 
-            }
+
+
+
+
+
+
+
+
+
+
+
+
+// 사용자 정보 가져오기
+const getCookie = (name) => {
+    let cookies = document.cookie.split("; ");
+    let result;
+
+    for (let i = 0; i < cookies.length; i++) {
+        let [key, value] = cookies[i].split("="); // 배열 분해 할당
+        if (name === key.trim()) { 
+            result = decodeURIComponent(value);
+            break; 
         }
-    
-        console.log(result);
-        return result;
-    };
-    // 현재 로그인된 사용자 정보 가져오기 
-    const userDataStr = getCookie("loggedInUser");
-    const userData = userDataStr ? JSON.parse(userDataStr) : null;
-    
-    console.log(userData)
-    const cookieArr = Object.entries(userData);
-    console.log(cookieArr[0][1])
+    }
+
+    console.log(result);
+    return result;
+};
+// 현재 로그인된 사용자 정보 가져오기 
+const userDataStr = getCookie("loggedInUser");
+const userData = userDataStr ? JSON.parse(userDataStr) : null;
+
+const cookieArr = Object.entries(userData);
+console.log(cookieArr)
+
+
+
+
     class CanvasImage {
-        constructor(index, src, word, drawer) {
+        constructor(index, src, word, drawer, explanation) {
             this.index = index;
             this.src = src;
             this.word = word;
             this.drawer = drawer
+            this.explanation = explanation;
         }
     }
-    
+
     document.querySelector('.submit').onclick = () => {
         const resultElement = document.getElementById("result");
         let randomWord = resultElement.innerText.trim();
+        let explanationText = explanation.value.trim();
+
         console.log(arr);
         randomWord = randomWord.replace(/당신의 제시어는\s*"(.+?)"\s*입니다!/, '$1');
+
         if (!randomWord) { 
             alert("제시어를 뽑고 그림을 그려주세요.");
             return;
         }
-        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord, cookieArr[0][1]));
+
+        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord, cookieArr[1][1], explanationText));
         localStorage.setItem('images', JSON.stringify(arr));
+
+        explanation.value = "";
+
+        setTimeout(() => {
+            window.location.href = 'http://127.0.0.1:5502/index.html';
+        }, 100);
         
-        window.location.href = `./메인페이지/메인페이지.html`;
     }
+
+    explanation.addEventListener("input", (event) => {
+        explanations[arr.length] = event.target.value;
+        localStorage.setItem("explanations", JSON.stringify(explanations));
+    });
 });
 
 document.querySelector('#exit-container').onclick =() => {
-    window.location.href = `./메인페이지/메인페이지.html`
+    window.location.href = 'http://127.0.0.1:5502/index.html'
 }
-
-
 
