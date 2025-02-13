@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         color = "black";
         ctx.lineWidth = lineWidth; // 기존 펜 두께 유지
     };
-
+    
     redBtn.onclick = () => {
         color = "red";
         ctx.lineWidth = lineWidth; 
@@ -105,52 +105,76 @@ document.addEventListener("DOMContentLoaded", () => {
         color = "blue";
         ctx.lineWidth = lineWidth; 
     };
-
+    
     orangeBtn.onclick = () => {
         color = "orange";
         ctx.lineWidth = lineWidth; 
     };
-
+    
     yellowBtn.onclick = () => {
         color = "yellow";
         ctx.lineWidth = lineWidth; 
     };
-
+    
     greenBtn.onclick = () => {
         color = "green";
         ctx.lineWidth = lineWidth; 
     };
-
+    
     violetBtn.onclick = () => {
         color = "violet";
         ctx.lineWidth = lineWidth; 
     };
 
-
+    
     // 지우개 기능 (배경색과 동일한 색상으로 변경 & 두께 증가)
     eraserBtn.onclick = () => {
         color = "white";
         ctx.lineWidth = lineWidth * 3; // 지우개 크기를 기존보다 3배 키움
     };
-
+    
     // 선 굵기 변경 이벤트
     sizeInput.addEventListener("input", (event) => {
         lineWidth = event.target.value;
         ctx.lineWidth = lineWidth; // 실시간으로 선 굵기 변경
     });
-
+    
     alleraserBtn.onclick = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height); 
     };
-
+    
+    // 사용자 정보 가져오기
+    const getCookie = (name) => {
+        let cookies = document.cookie.split("; ");
+        let result;
+    
+        for (let i = 0; i < cookies.length; i++) {
+            let [key, value] = cookies[i].split("="); // 배열 분해 할당
+            if (name === key.trim()) { 
+                result = decodeURIComponent(value);
+                break; 
+            }
+        }
+    
+        console.log(result);
+        return result;
+    };
+    // 현재 로그인된 사용자 정보 가져오기 
+    const userDataStr = getCookie("loggedInUser");
+    const userData = userDataStr ? JSON.parse(userDataStr) : null;
+    
+    console.log(userData)
+    const cookieArr = Object.entries(userData);
+    console.log(cookieArr[0][1])
     class CanvasImage {
-        constructor(index, src, word) {
+        constructor(index, src, word, drawer) {
             this.index = index;
             this.src = src;
             this.word = word;
+            this.drawer = drawer
         }
     }
-
+    
     document.querySelector('.submit').onclick = () => {
         const resultElement = document.getElementById("result");
         let randomWord = resultElement.innerText.trim();
@@ -160,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("제시어를 뽑고 그림을 그려주세요.");
             return;
         }
-        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord));
+        arr.push(new CanvasImage(arr.length + 1, canvas.toDataURL(), randomWord, cookieArr[0][1]));
         localStorage.setItem('images', JSON.stringify(arr));
         
         window.location.href = `./메인페이지/메인페이지.html`;
@@ -170,3 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
 document.querySelector('#exit-container').onclick =() => {
     window.location.href = `./메인페이지/메인페이지.html`
 }
+
+
+

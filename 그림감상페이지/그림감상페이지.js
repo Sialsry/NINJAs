@@ -1,23 +1,52 @@
 function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
-    console.dir(urlParams);
     return urlParams.get(name);
 }
 
 const imageSrc = getQueryParam("image");
+const images = JSON.parse(localStorage.getItem("images")) || [];
 
 if (imageSrc) {
-    const images = JSON.parse(localStorage.getItem("images")) || [];
+    // const images = JSON.parse(localStorage.getItem("images")) || [];
     document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src
-    console.log(images)
-    console.log(imageSrc)
+    document.querySelector('.drawer').innerHTML = `${images[parseInt(imageSrc)-1].drawer} 님의 그림 무슨 그림일까요?`
 } else {
     document.getElementById("displayedImage").alt = "No image selected.";
 }
 
 
+
+
+
+
+
+// 사용자 정보 가져오기
+const getCookie = (name) => {
+let cookies = document.cookie.split("; ");
+let result;
+for (let i = 0; i < cookies.length; i++) {
+    let [key, value] = cookies[i].split("="); // 배열 분해 할당
+    if (name === key.trim()) { 
+        result = decodeURIComponent(value);
+        break; 
+    }
+}
+console.log(result);
+return result;
+};
+// 현재 로그인된 사용자 정보 가져오기 
+const userDataStr = getCookie("loggedInUser");
+const userData = userDataStr ? JSON.parse(userDataStr) : null;
+const cookieArr = Object.entries(userData);
+console.log(cookieArr[0][1])
+
 // --------------------------------------------------------------아래로 댓글 영역
-const user = {uid : "soon"}
+// const loginedUser = JSON.parse(localStorage.getItem("users")) || []
+// const logedinUserNickname = Object.entries(loginedUser[0])[0][1]
+
+
+
+const user = {uid : cookieArr[0][1]}
 const commentList = document.querySelector("#comment-list")
 const commentFrm = document.querySelector("#comment-frm")
 class Comment {
@@ -36,17 +65,30 @@ class Comment {
 }
 
 
+const drawer = JSON.parse(localStorage.getItem('images'))
+
+console.log(drawer[0])
+const drawer2 = Object.entries(drawer[0])
+console.log(drawer2[3][1])
+
 
 
 const submitHandler = (e) => {
-    e.preventDefault();
-    // const {content} = e.target; // const content = e.target.content
-    // const {value} = content; // const value = content.value
-    let {value} = e.target.content
-    addState(value);
-    drawing();
-    e.target.content.value = ""
-}
+    let {value} = e.target.content // const value = e.target.content.value
+    if (user.uid === images[parseInt(imageSrc)-1].drawer) {
+        alert('글을 그린 사람은 댓글을 입력할 수 없습니다')
+        
+    } else {
+      if (value === images[parseInt(imageSrc)-1].word) {
+          alert('정답입니다! 100포인트 획득.')
+      } else {
+        e.preventDefault();
+        addState(value);
+        drawing();
+        e.target.content.value = ""
+      }
+    }
+}    
 const state = []
 const addState = (value) => {
     if (value.trim() === "") return;
