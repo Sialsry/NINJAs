@@ -138,7 +138,7 @@ const signinPopup = () => {
 
         if (isNicknameTaken || isIdTaken) return;
 
-        // 유저정보 저장
+        // 유저정보 저장 *********************
         users.push({ nickname, id: userid, password });
         localStorage.setItem("users", JSON.stringify(users));
         console.log("가입된 유저 목록:", users);

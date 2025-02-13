@@ -1,0 +1,38 @@
+.nicknamePopup, .newNicknamePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check_popup, .newNickname_input {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    margin: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.error_message {
+    color: red;
+    font-size: 14px;
+    margin: 5px 0;
+}
