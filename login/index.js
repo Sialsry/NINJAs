@@ -192,7 +192,6 @@ const loginUser = () => {
         nickname: validUser.nickname,
         id: validUser.id,
         password: validUser.password 
-        point: 0;
 
     };
 

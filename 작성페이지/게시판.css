@@ -1,5 +1,5 @@
 body {
-    background-image: url(./images/DALL_E_2025-02-12_10.25.42_-_A_hand-drawn_style_title_that_reads__NINJA_SKETCH__in_a_playful__artistic_brushstroke_font._The_text_should_have_an_organic__slightly_rough_feel__rese-removebg-preview.png);
+    background-image: url(../images/DALL_E_2025-02-12_10.25.42_-_A_hand-drawn_style_title_that_reads__NINJA_SKETCH__in_a_playful__artistic_brushstroke_font._The_text_should_have_an_organic__slightly_rough_feel__rese-removebg-preview.png);
     background-repeat: no-repeat; 
     background-size: 170px, 120px;
     text-align: center;
@@ -74,7 +74,7 @@ canvas {
 #exit-container:hover #exit-logo {
     width: 110px; 
     height: auto;
-    content: url("./images/DALL_E_2025-02-12_14.59.14_-_A_hand-drawn_style_ninja_in_a_sketch-like_appearance__running_away_quickly_in_a_cute_and_humorous_way._The_ninja_should_have_exaggerated_motion_lines_-removebg-preview.png"); 
+    content: url("../images/DALL_E_2025-02-12_14.59.14_-_A_hand-drawn_style_ninja_in_a_sketch-like_appearance__running_away_quickly_in_a_cute_and_humorous_way._The_ninja_should_have_exaggerated_motion_lines_-removebg-preview.png"); 
 }
 
 #size {
@@ -125,11 +125,11 @@ canvas {
 
 
 #Canvas-container {
-    margin-left: 290px;
     display: flex;
-    flex-direction: row;  
-    align-items: center;     
-    gap: 10px;               
+    flex-direction: column; /* 세로 방향 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 간격 조정 */
     margin-top: 20px;
 }
 
@@ -138,8 +138,6 @@ canvas {
     align-items: center;
     justify-content: center; 
     gap: 5px; 
-    margin-bottom: 10px;
-    margin-top: 300px;
     font-size: 20px;
 }
 
