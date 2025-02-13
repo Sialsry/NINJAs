@@ -192,6 +192,8 @@ const loginUser = () => {
         nickname: validUser.nickname,
         id: validUser.id,
         password: validUser.password 
+        point: 0;
+
     };
 
     document.cookie = `loggedInUser=${encodeURIComponent(JSON.stringify(userData))}; path=/;`;
