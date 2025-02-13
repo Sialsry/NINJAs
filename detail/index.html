@@ -4,22 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h2>내 정보</h2>
     <p>닉네임: <span id="current_nickname"></span></p>
     <button id="edit_nickname_btn">닉네임 수정</button>
 
-    <div id="nickname_popup" class="popup" style="display: none;">
-        <div class="popup_content">
-            <h3>닉네임 변경</h3>
-            <input type="text" id="verify_id" placeholder="아이디 입력">
-            <input type="password" id="verify_password" placeholder="비밀번호 입력">
-            <p id="verify_error" class="error_message" style="display: none; color: red;">아이디 또는 비밀번호가 올바르지 않습니다.</p>
-            <button id="verify_btn">확인</button>
-            <button id="close_popup">닫기</button>
-        </div>
-    </div>
+    <script src="./index.js"></script>
 </body>
-<script src ="./index.js"></script>
 </html>
