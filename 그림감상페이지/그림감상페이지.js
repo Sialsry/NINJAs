@@ -100,6 +100,7 @@ const submitHandler = (e) => {
     } else {
         if (value === images[parseInt(imageSrc)-1].word) {     // 정답 댓글 작성 시
             alert('정답입니다! 100포인트 획득.')
+            document.querySelector(".int").disabled = true;
             for (let i = 0; i < newPoint.length; i++) {
                 if (userData.id === newPoint[i].id) {
                     newPoint[i].point += 100

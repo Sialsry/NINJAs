@@ -26,10 +26,6 @@ document.getElementById("mypage_detail").addEventListener("click", () => {
 
 
 
-
-
-
-
 function viewImage(imageSrc) {
     window.location.href = `../그림감상페이지/그림감상페이지.html?image=` + imageSrc; // 클릭한 이미지의 경로를 쿼리 스트링에 추가하여 이동
 }
@@ -40,18 +36,12 @@ arr.forEach((e) => {
     const img = document.createElement('img');
     img.src = e.src;
     img.onclick = () => viewImage(e.index);
-    // console.log(JSON.parse(localStorage.getItem('images'))[e.index-1])
     if (JSON.parse(localStorage.getItem('images'))[e.index-1].stat === true) {
         completed_images_content.appendChild(img);
     } else if (JSON.parse(localStorage.getItem('images'))[e.index-1].stat === false) {
         images_content.appendChild(img);
     }    
 })
-
-
-// const loginedUser = JSON.parse(localStorage.getItem("users")) || []
-// console.log(loginedUser) // [{nickname:'x', id:'y', password:'z'}]
-// console.log(encodeURIComponent(JSON.stringify(userData)))
 
 
 const getCookie = (name) => {
