@@ -75,28 +75,21 @@ console.log(cookieArr[0][1])
 
 document.querySelector('.logined_User').innerHTML = `${cookieArr[0][1]} 님 환영합니다.`
 
-
-
-// 1️⃣ 로컬스토리지에서 users 데이터 가져오기
 const usersData = JSON.parse(localStorage.getItem("users")) || [];
 
-// 2️⃣ 포인트를 기준으로 내림차순 정렬
 usersData.sort((a, b) => b.point - a.point);
 
-// 3️⃣ 랭킹 리스트 컨테이너 가져오기
 const rankingListContainer = document.getElementById("ranking_list_container");
 
-// 4️⃣ 기존 랭킹 리스트 초기화 후 새로운 리스트 생성
 rankingListContainer.innerHTML = `
     <h2 style="text-align:center; font-size: 24px; color: black;">🏆 랭킹 🏆</h2>
     <ul id="ranking_list" style="list-style: none; padding: 10px; background: white; border-radius: 10px; width: 300px; margin: auto; text-align: left;">
     </ul>
 `;
 
-// 5️⃣ 리스트 요소 가져오기
+
 const rankingList = document.getElementById("ranking_list");
 
-// 6️⃣ 상위 10명의 유저를 랭킹에 추가
 usersData.slice(0, 10).forEach((user, index) => {
     const listItem = document.createElement("li");
     listItem.style.fontSize = "18px";
@@ -104,7 +97,6 @@ usersData.slice(0, 10).forEach((user, index) => {
     listItem.style.padding = "5px";
     listItem.style.borderBottom = "1px solid gray";
 
-    // 🥇, 🥈, 🥉 상위 3명 아이콘 추가
     let rankIcon = "";
     if (index === 0) rankIcon = "🥇 ";
     else if (index === 1) rankIcon = "🥈 ";
