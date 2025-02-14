@@ -1,61 +1,23 @@
 function getQueryParam(name) {
     const urlParams = new URLSearchParams(window.location.search);
+    console.dir(urlParams);
     return urlParams.get(name);
 }
 
 const imageSrc = getQueryParam("image");
-const images = JSON.parse(localStorage.getItem("images")) || [];
 
 if (imageSrc) {
-    // const images = JSON.parse(localStorage.getItem("images")) || [];
+    const images = JSON.parse(localStorage.getItem("images")) || [];
     document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src
-    document.querySelector('.drawer').innerHTML = `${images[parseInt(imageSrc)-1].drawer} 님의 그림 무슨 그림일까요?`
-    document.querySelector('.explain').innerHTML = `${images[parseInt(imageSrc)-1].explanation}`
+    console.log(images)
+    console.log(imageSrc)
 } else {
     document.getElementById("displayedImage").alt = "No image selected.";
 }
 
 
-
-
-
-
-
-
-if (localStorage.getItem('users')) {
-    
-}
-
-
-
-
-
-// 사용자 정보 가져오기
-const getCookie = (name) => {
-let cookies = document.cookie.split("; ");
-let result;
-for (let i = 0; i < cookies.length; i++) {
-    let [key, value] = cookies[i].split("="); // 배열 분해 할당
-    if (name === key.trim()) { 
-        result = decodeURIComponent(value);
-        break; 
-    }
-}
-console.log(result);
-return result;
-};
-// 현재 로그인된 사용자 정보 가져오기 
-const userDataStr = getCookie("loggedInUser");
-const userData = userDataStr ? JSON.parse(userDataStr) : null;
-const cookieArr = Object.entries(userData);
-
 // --------------------------------------------------------------아래로 댓글 영역
-// const loginedUser = JSON.parse(localStorage.getItem("users")) || []
-// const logedinUserNickname = Object.entries(loginedUser[0])[0][1]
-
-
-
-const user = {uid : cookieArr[0][1]}
+const user = {uid : "soon"}
 const commentList = document.querySelector("#comment-list")
 const commentFrm = document.querySelector("#comment-frm")
 class Comment {
@@ -74,51 +36,17 @@ class Comment {
 }
 
 
-const drawer = JSON.parse(localStorage.getItem('images'))
-
-// console.log(drawer[0])
-// const drawer2 = Object.entries(drawer[0])
-// console.log(drawer2[3][1])
-
 
 
 const submitHandler = (e) => {
-    const userDataStr = getCookie("loggedInUser");
-    const userData = userDataStr ? JSON.parse(userDataStr) : null;
-    let {value} = e.target.content // const value = e.target.content.value
-    console.log(user.id)
-    console.log(images[parseInt(imageSrc)-1].drawer)
-    console.log(userData)
-    const newPoint = JSON.parse(localStorage.getItem('users'))
-    console.log(newPoint)
-    
-    
-    
-    if (userData.id === images[parseInt(imageSrc)-1].drawer) {
-        alert('글을 그린 사람은 댓글을 입력할 수 없습니다')
-        console.log('gfhgfgf',userData)
-    } else {
-        if (value === images[parseInt(imageSrc)-1].word) {
-            alert('정답입니다! 100포인트 획득.')
-            for (let i = 0; i < newPoint.length; i++) {
-                if (userData.id === newPoint[i].id) {
-                    newPoint[i].point += 100
-                    localStorage.setItem('users', JSON.stringify(newPoint))
-                }
-            }
-            const newStat = JSON.parse(localStorage.getItem('images'))
-            newStat[parseInt(imageSrc)-1].stat = true
-            localStorage.setItem('images', JSON.stringify(newStat))
-            // localStorage.setItem('images', JSON.stringify(images))
-
-        } else {
-            e.preventDefault();
-            addState(value);
-            drawing();
-            e.target.content.value = ""
-      }
-    }
-}    
+    e.preventDefault();
+    // const {content} = e.target; // const content = e.target.content
+    // const {value} = content; // const value = content.value
+    let {value} = e.target.content
+    addState(value);
+    drawing();
+    e.target.content.value = ""
+}
 const state = []
 const addState = (value) => {
     if (value.trim() === "") return;
