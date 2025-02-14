@@ -75,4 +75,46 @@ console.log(cookieArr[0][1])
 
 document.querySelector('.logined_User').innerHTML = `${cookieArr[0][1]} 님 환영합니다.`
 
+const usersData = JSON.parse(localStorage.getItem("users")) || [];
 
+usersData.sort((a, b) => b.point - a.point);
+
+const rankingListContainer = document.getElementById("ranking_list_container");
+
+rankingListContainer.innerHTML = `
+    <h2 style="text-align:center; font-size: 24px; color: black;">🏆 랭킹 🏆</h2>
+    <ul id="ranking_list" style="list-style: none; padding: 10px; background: white; border-radius: 10px; width: 300px; margin: auto; text-align: left;">
+    </ul>
+`;
+
+
+const rankingList = document.getElementById("ranking_list");
+
+usersData.slice(0, 10).forEach((user, index) => {
+    const listItem = document.createElement("li");
+    listItem.style.fontSize = "18px";
+    listItem.style.color = "black";
+    listItem.style.padding = "5px";
+    listItem.style.borderBottom = "1px solid gray";
+
+    let rankIcon = "";
+    if (index === 0) rankIcon = "🥇 ";
+    else if (index === 1) rankIcon = "🥈 ";
+    else if (index === 2) rankIcon = "🥉 ";
+    
+    listItem.innerHTML = `${rankIcon} ${user.nickname} - ${user.point}점`;
+    rankingList.appendChild(listItem);
+});
+
+const audio = new Audio("../music/background.mp3"); 
+audio.loop = true;
+
+document.getElementById("music_btn").addEventListener("click", function() {
+    if (audio.paused) {
+        audio.play();
+        this.innerHTML = "⏸"; 
+    } else {
+        audio.pause();
+        this.innerHTML = "🎵"; 
+    }
+});
