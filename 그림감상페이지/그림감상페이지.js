@@ -7,27 +7,12 @@ const imageSrc = getQueryParam("image");
 const images = JSON.parse(localStorage.getItem("images")) || [];
 
 if (imageSrc) {
-    // const images = JSON.parse(localStorage.getItem("images")) || [];
     document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src
     document.querySelector('.drawer').innerHTML = `${images[parseInt(imageSrc)-1].drawer} 님의 그림 무슨 그림일까요?`
     document.querySelector('.explain').innerHTML = `${images[parseInt(imageSrc)-1].explanation}`
 } else {
     document.getElementById("displayedImage").alt = "No image selected.";
 }
-
-
-
-
-
-
-
-
-if (localStorage.getItem('users')) {
-    
-}
-
-
-
 
 
 // 사용자 정보 가져오기
@@ -49,10 +34,16 @@ const userDataStr = getCookie("loggedInUser");
 const userData = userDataStr ? JSON.parse(userDataStr) : null;
 const cookieArr = Object.entries(userData);
 
-// --------------------------------------------------------------아래로 댓글 영역
-// const loginedUser = JSON.parse(localStorage.getItem("users")) || []
-// const logedinUserNickname = Object.entries(loginedUser[0])[0][1]
+if (images[parseInt(imageSrc)-1].stat === true) {  // 이미 정답을 맞춘 그림일 때
+    document.querySelector(".int").disabled = true;
+    document.querySelector(".int").placeholder = "이미 정답을 맞춘 그림입니다.";
+}
+if (userData.id === images[parseInt(imageSrc)-1].drawer) { // 이미지를 그린 사람이 댓글을 입력하려고 할 때
+    document.querySelector(".int").disabled = true;
+    document.querySelector(".int").placeholder = '본인의 그림에는 댓글을 입력할 수 없습니다.';
+}
 
+// --------------------------------------------------------------아래로 댓글 영역--------------------------------------------------------------
 
 
 const user = {uid : cookieArr[0][1]}
@@ -62,43 +53,52 @@ class Comment {
     constructor(content) {
         this.uid = user.uid;
         this.content = content;
-        this.date = new Date(); 
+        this.date = this.getToday("-")
         this.update = false;
     }
     getToday(text) {
-        let h = this.date.getHours()
-        let m = this.date.getMinutes()
-        let s = this.date.getSeconds()
+        const date = new Date()
+        let h = date.getHours()
+        let m = date.getMinutes()
+        let s = date.getSeconds()
         return [h, m, s].join(text)
     }
 }
 
 
-const drawer = JSON.parse(localStorage.getItem('images'))
 
+
+
+
+
+
+
+// const drawer = JSON.parse(localStorage.getItem('images'))
 // console.log(drawer[0])
-// const drawer2 = Object.entries(drawer[0])
-// console.log(drawer2[3][1])
 
 
 
+const data = []
 const submitHandler = (e) => {
+    e.preventDefault()
+    const {uid, content, date} = e.target
+    const comment = new Comment(content.value)
+    data.push(comment)
+    const content_JSON = JSON.stringify(data)
+    localStorage.setItem(`comments${images[parseInt(imageSrc)-1].index}`, content_JSON)
+    
+    
     const userDataStr = getCookie("loggedInUser");
     const userData = userDataStr ? JSON.parse(userDataStr) : null;
     let {value} = e.target.content // const value = e.target.content.value
-    console.log(user.id)
-    console.log(images[parseInt(imageSrc)-1].drawer)
-    console.log(userData)
     const newPoint = JSON.parse(localStorage.getItem('users'))
-    console.log(newPoint)
     
-    
-    
-    if (userData.id === images[parseInt(imageSrc)-1].drawer) {
-        alert('글을 그린 사람은 댓글을 입력할 수 없습니다')
-        console.log('gfhgfgf',userData)
+    if (userData.id === images[parseInt(imageSrc)-1].drawer) { // 이미지를 그린 사람이 댓글을 입력하려고 할 때
+        alert('그림을 그린 사람은 댓글을 입력할 수 없습니다')
+        e.preventDefault()
+        e.target.content.value = ""
     } else {
-        if (value === images[parseInt(imageSrc)-1].word) {
+        if (value === images[parseInt(imageSrc)-1].word) {     // 정답 댓글 작성 시
             alert('정답입니다! 100포인트 획득.')
             for (let i = 0; i < newPoint.length; i++) {
                 if (userData.id === newPoint[i].id) {
@@ -106,23 +106,41 @@ const submitHandler = (e) => {
                     localStorage.setItem('users', JSON.stringify(newPoint))
                 }
             }
-            const newStat = JSON.parse(localStorage.getItem('images'))
-            newStat[parseInt(imageSrc)-1].stat = true
-            localStorage.setItem('images', JSON.stringify(newStat))
-            // localStorage.setItem('images', JSON.stringify(images))
-
-        } else {
+            images[parseInt(imageSrc)-1].stat = true
+            localStorage.setItem('images', JSON.stringify(images))
+            e.preventDefault()
+            addState(value);
+            drawing();
+            e.target.content.value = ""
+        }
+        else if (value !== images[parseInt(imageSrc)-1].word) { // 정답이 아닌 댓글 작성 시
             e.preventDefault();
             addState(value);
             drawing();
             e.target.content.value = ""
-      }
+            // const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
+            // for (let i = 0; i < data.length; i++) {
+                
+            //     const {uid, content, date} = draw_comment[i]
+            //     document.querySelector('.comment-id').innerHTML = uid
+            //     document.querySelector('.comment-update-btn').innerHTML = content
+            //     document.querySelector('.comment-date').innerHTML = date        
+            // }
+        }
     }
 }    
-const state = []
+
+
+
+const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc-1)].index}`)) || []
+console.log(images[parseInt(imageSrc)])
+
+const state = draw_comment
 const addState = (value) => {
     if (value.trim() === "") return;
     state.push(new Comment(value.trim()))
+
+    console.log(state)
     setTotalRecord();
 }
 const setTotalRecord = () => {
@@ -141,6 +159,7 @@ const drawing = () => {
     }
 }
 const creatRow = (index) => {
+    console.log(state[index])
     const item = state[index];
     const commentRow = document.createElement("ul")
     commentRow.classList.add("comment-row")
@@ -150,7 +169,7 @@ const creatRow = (index) => {
     commentId.innerHTML = item.uid;
     const commentDate = document.createElement("li")
     commentDate.classList.add("comment-date")
-    commentDate.innerHTML = item.getToday(":")
+    commentDate.innerHTML = item.date
     const commentContent = getContentBox(item.update, item.content) 
     commentRow.append(commentId, commentContent, commentDate);
     return commentRow
@@ -219,6 +238,14 @@ const clickHandler = (e) => { // 클릭이벤트 발생하는 경우: 1. 작성�
     }
 }
 
+for (let i = 0; i < draw_comment.length; i++) {
+                const draw_comment = JSON.parse(localStorage.getItem(`comments${images[i].index}`))
+                const {uid, content, date} = draw_comment[i]
+                drawing()
+                document.querySelector('.comment-id').innerHTML = uid
+                document.querySelector('.comment-update-btn').innerHTML = content
+                document.querySelector('.comment-date').innerHTML = date        
+}
 
 
 commentFrm.onsubmit = submitHandler;
