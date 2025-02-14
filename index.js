@@ -1,7 +1,7 @@
 console.log(window.location.href);
 
 document.querySelector('.draw').onclick = () => {
-    window.location.href = '/작성페이지/게시판.html'
+    window.location.href = '/create/create.html'
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,7 +27,7 @@ document.getElementById("mypage_detail").addEventListener("click", () => {
 
 
 function viewImage(imageSrc) {
-    window.location.href = `../그림감상페이지/그림감상페이지.html?image=` + imageSrc; // 클릭한 이미지의 경로를 쿼리 스트링에 추가하여 이동
+    window.location.href = `../content/content.html?image=` + imageSrc; // 클릭한 이미지의 경로를 쿼리 스트링에 추가하여 이동
 }
 
 const arr = JSON.parse(localStorage.getItem("images")) || []

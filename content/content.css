@@ -3,6 +3,29 @@
     flex-direction: space-between; 
 }
 
+body {
+    background-color: #007acc;
+}
+
+
+.seeOther {
+    border: 1px solid #09629c;
+    padding: 10px 0px;
+    background-color: #09629c;
+    color: black;
+    border-radius: 5px;
+}
+
+
+
+/* #displayedImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    background-color: white
+
+} */
 
 .container {
     text-align: center;
@@ -13,6 +36,7 @@ img {
     max-width: 1100px;
     max-height: 1100px;
     border: 3px solid #000;
+    background-color: white;
 }
 a {
     display: block;
@@ -39,6 +63,7 @@ padding: 30px;
 width: 600px;
 margin: 0 auto;
 margin-top: 100px;
+background-color: #09629c;
 
 }
 
