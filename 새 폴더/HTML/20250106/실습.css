@@ -1,0 +1,451 @@
+#kbs {
+    margin : 0;
+    padding : 0;
+}
+
+#kbs .gnb {
+    height: 60px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+#kbs > .gnb > img {
+    display: block;
+    margin: 0 0 0 335px;
+}
+
+#kbs > .gnb > .a1 {
+    width: 10%;
+    height: 100%;
+    
+}
+
+.gnb > .a1 > .a-1 {
+    margin: 15px 0 0 50px;
+    font-size: larger;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#kbs > .gnb > .b1 {
+    width: 10%;
+    height: 100%;
+}
+
+.gnb > .b1 > .b-1 {
+    margin: 15px 0 0 30px;
+    font-size: larger;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#kbs > .gnb > .c1 {
+    width: 8%;
+    height: 100%;
+}
+
+.gnb > .c1 > .c-1 {
+    margin: 15px 0 0 5px;
+    font-size: larger;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#kbs > .gnb > .d1 {
+    width: 10%;
+    height: 100%;
+}
+
+.gnb > .d1 > .d-1 {
+    margin: 15px 0 0 20px;
+    font-size: larger;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#kbs > .gnb > .gnb2 {
+    display: flex;
+    width: 15%;
+    height: 100%;
+    align-items: center;
+    margin: 0 0 0 20px;
+}
+
+.gnb > .gnb2 > img:nth-child(1) {
+    margin: 0 0 0 15px;
+}
+
+.gnb > .gnb2 > img:nth-child(2) {
+    margin: 0 0 0 10px;
+}
+
+.gnb > .gnb2 > img:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    margin: 0 0 0 10px;
+}
+
+.gnb > .gnb2 > .e1 {
+    border: 1px solid #4b79ee;
+    background-color: #4b79ee;
+    font-size: medium ;
+    padding: 8px 20px;
+    margin: 0 0 0 25px;
+    border-radius: 5px;
+    color: white;
+}
+
+#kbs > .gnb3 {
+    margin: 15px 0 0 0;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 660px;
+}
+
+#kbs > .gnb3 > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#kbs > .gnb3 > .img-1 {
+    display: inline-block;
+    position: absolute;
+    color: white;
+    font-size: 45px;
+    margin: 177px 0px 0 400px;
+}
+
+#kbs > .gnb3 > .img-2 {
+    display: inline-block;
+    position: absolute;
+    width: 20%;
+    height: 70%;
+    backdrop-filter: blur(16px);
+    top: 100px; 
+    left: 1100px;
+    border-radius: 10px;
+}
+
+.gnb3 > .img-2 > .img-2-1 {
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    margin: 25px 0px 0 25px;
+}
+
+.gnb3 > .img-2 > .img3 {
+    display: flex;
+    width: 90%;
+    height: 15%;
+    margin: 25px 0 0 25px;
+    align-items: center;
+}
+
+.img3 > label {
+    font-size: larger;
+    color: white;
+    position: relative;
+    margin: 0 10px 0 0;
+}
+
+.img3 > input {
+    position: absolute;
+    left: 0.1px;
+    display: none;
+    
+}
+
+
+select {
+    position: absolute;
+    right: 10px;
+    width: 45%;
+    height: 10%;
+    text-align: start;
+    border-radius: 8px;
+    background-color:  rgba(0, 0, 0, 0);
+    border-color: white;
+    color: white;
+    margin: 0px 10px 0 0;
+    font-size: large;
+    padding-left: 10px;
+    outline: none;
+}
+
+option {
+    color: grey;
+}
+
+input[id="gender"] + label,
+input[id="gender2"] + label{
+    position: relative;
+    width: 1.1rem;
+    height: 1.1rem;
+}
+
+input[id="gender"] + label::before,
+input[id="gender2"] + label::before
+                    {
+    content: "";
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    border: 1px solid #dfe2e5;
+    background-color: white;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+input[id="gender"]:checked + label::after,
+input[id="gender2"]:checked + label::after
+                        {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4b79ee;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.img4 {
+    padding-left: 23px;
+    color:white;
+}
+
+#tab_menu>label{
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid white;
+    font-size: 17px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: white;
+    height: 7.1px;
+    border-radius: 8px;
+    color: white;
+    margin: -13px 0 21px 0px;
+    line-height: 0.1px;
+    
+}
+    
+
+#tab_menu>input{
+    display: none;
+}
+
+#tab_menu {
+    margin-left: 20px;
+}
+
+#tab_menu>input:checked+label {
+    background-color: rgb(248, 248, 248);
+    color: #4b79ee;
+
+}
+
+.chk-more {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: rgba(0, 0, 0, 0);
+    outline: none;
+    font-size: large;
+    position: relative;
+    cursor: pointer;
+}
+
+.chk-more .txt {
+    display: inline-block;
+    font-weight: 700;
+    color:white;
+    position: absolute;
+    top: -19px;
+    left: 35px;
+}
+
+.tt{
+    position: absolute;
+    border: 1px solid #4b79ee;
+    background-color: #4b79ee;
+    font-size: medium ;
+    padding: 10px 160px;
+    border-radius: 5px;
+    color: white;
+    bottom: 22px;
+    right: 1px;
+    cursor: pointer;
+    
+}
+
+.ts{
+    position: absolute;
+    border: 1px solid #4b79ee;
+    background-color: #4b79ee;
+    font-size: large ;
+    padding: 20px 40px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    left: 21%;
+    top: 55%;
+    font-size: large;
+    
+}
+
+.img5 {
+    position: absolute;
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    left: 21%;
+    top: 45%;
+}
+
+.qqq {
+    position: absolute;
+    left: 21%;
+    top: 66%;
+    max-width: 1.5%;
+    max-height: 7%;
+    cursor: pointer;
+}
+
+.www {
+    position: absolute;
+    left: 22.3%;
+    top: 66%;
+    max-width: 1.5%;
+    max-height: 7%;
+    cursor: pointer;
+}
+
+.a-1:hover{
+    color: #4b79ee;
+}
+
+.b-1:hover{
+    color: #4b79ee;
+}
+
+.c-1:hover{
+    color: #4b79ee;
+}
+
+.d-1:hover{
+    color: #4b79ee;
+}
+
+.kbs2 {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    display: block;
+    background-color: #eff1f3;
+    margin: 0 0 0 0;
+    color: rgb(103, 102, 102);
+}
+
+
+.kbs3 > label{
+    display: block;
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    margin: 0 0px 10px 300px;
+    
+}
+
+.kbs3 > input{
+    display: none;
+}
+
+.kbs3 > input:checked+label {
+    color: #4b79ee;
+    cursor: pointer;
+}
+
+.kbs3 {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    margin: 30px 0 0 0;
+}
+
+.zzz {
+    position: absolute;
+    right: 58%;
+    top: 15%;
+    font-size: 25px;
+    color: rgb(76, 74, 74);
+}
+
+.zzz2 {
+    position: absolute;
+    right: 20%;
+    top: 15%;
+    font-size: 25px;
+    color: rgb(76, 74, 74);
+}
+
+.kbs4 > label {
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid white;
+    font-size: 17px;
+    background-color:  rgba(0, 0, 0, 0);
+    border-color: rgb(76, 74, 74);
+    height: 7.1px;
+    border-radius: 8px;
+    color: rgb(76, 74, 74);
+    margin: -13px 0 21px 0px;
+    line-height: 0.1px;
+    width: 12%;
+    
+    
+}
+
+.kbs4 > input{
+    display: none;
+}
+
+
+.kbs4 > input:checked+label {
+    color: #4b79ee;
+    cursor: pointer;
+    background-color: white;
+}
+
+.kbs4 {
+    position: relative;
+    top: -10%;
+}
+
+.nnn {
+    position: relative;
+    border: 1px solid #4b79ee;
+    background-color: #4b79ee;
+    font-size: medium;
+    padding: 15px 40px;
+    margin: 0px 0px 0px 25px;
+    border-radius: 10px;
+    color: white;
+    top: -9%;
+    cursor: pointer;
+
+}

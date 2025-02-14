@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+ function accessControl(initialPassword) {
+    let password = initialPassword;
+    let failedAttempts = 0;
+
+    return {
+        updatePassword: function (oldPassword, newPassword) {
+            if (oldPassword === password) {
+                password = newPassword;
+                console.log('Password updated successfully.');
+            } else {
+                failedAttempts++;
+                console.log('Incorrect password. Failed attempts:', failedAttempts);
+            }
+        },
+        resetFailedAttempts: function () {
+            failedAttempts = 0;
+            console.log('Failed attempts reset.');
+        },
+        getFailedAttempts: function () {
+            console.log('Failed attempts:', failedAttempts);
+        }
+    };
+}
+
+const account = accessControl('secret123');
+account.updatePassword('wrongpass', 'newpass'); // Incorrect password. Failed attempts: 1
+account.updatePassword('secret123', 'newpass'); // Password updated successfully.
+account.getFailedAttempts();                   //  Failed attempts: 1
+account.resetFailedAttempts();                 // Failed attempts reset.
+account.getFailedAttempts();                   // Failed attempts: 0
+
+
+</script>
+</html>

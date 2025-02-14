@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function example() {
+  const a = 3;
+  
+  function inner1(b) {
+    console.log("inner1:", b);
+  }
+  
+  const c = 7;
+  
+  function inner2(d) {
+    inner1(d);
+    console.log("inner2:", c);
+  }
+  
+  const e = 10;
+  
+  function inner3(f) {
+    inner2(a + f);
+    console.log("inner3:", e);
+  }
+  
+  inner3(2);
+}
+
+example();
+
+
+</script>

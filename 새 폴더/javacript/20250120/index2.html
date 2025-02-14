@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="content-btn">눌러봐</button>
+</body>
+<script>
+    const contentBtn = document.querySelector('.content-btn');
+    contentbtn.onclick = function(e) {
+        console.log("난 클릭 될때 실행된다.");
+        console.log(e);
+        console.log(e.target)
+    }
+
+    // this.onclick();
+    // onclick.lenght 길이 검사를 해서
+    // 1 이상인지 매개변수 갯수
+
+    // if(this.onclick.length === 0){
+    // return this.onclick();
+    // }else if(this.onclick.length === 1) {
+    //     this.onclick(this.evnet);
+    // }else {
+    //     return "에러남"
+    // }
+</script>
+</html>

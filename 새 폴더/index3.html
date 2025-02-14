@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// function foo() {
+//     let a = 1;
+//     function foo2 () {
+//         console.log(b);
+//         console.log(foo3())
+//     }
+//     foo2();
+//     let b = 2;
+// }
+
+// function foo3(){
+//     return 4;
+// }
+
+// foo()
+
+// function boo() {
+//         const b = 3;
+//         function boo2() {
+//             console.log(b);
+//             boo3();
+//             function boo3() {
+//                 console.log(a);
+//             }
+//             const a = 4;
+        
+//         }
+//         const a = 5;
+//         boo2();
+//         }
+//     boo();
+
+
+
+//     function boo() {
+//         function boo2() {
+//             const c = 345;
+//             console.log(b);
+//             boo3();
+//             function boo3() {
+//                 const b = 3;
+//                 console.log(c);
+//                 console.log(a);
+//                 function boo4(){
+//                     console.log (a);
+//                 }
+//                 const a = 4;
+//                 boo34()
+//             }
+        
+//         }
+//         const a = 5;
+//         console.log(a);
+//         boo2();
+//     }
+//     boo();
+
+    
+
+
+
+
+
+// function poo() {
+//     const num2 = 2;
+//     function poo2(num2) {
+//         console.log(num2);
+//     }
+//     const num3 = 5;    
+//     function poo3(num3) {
+//         poo2(num3);
+//         console.log(num3);
+//     }
+//     const num4 = 6;
+//     function poo4(num4) {
+//         poo3(num2);
+//     }
+//     poo4();
+// }
+
+// poo();
+
+// function example2() {
+//    let x = 10;
+   
+//    function inner1() {
+//        console.log(y);
+//        inner2();
+       
+//        function inner2() {
+//            console.log(x);
+//            console.log(y);
+//        }
+//        let y = 20;
+//    }
+   
+//    inner1();
+// }
+// example2();
+
+
+
+// function example3() {
+//    let value = 'outer';
+   
+//    function first() {
+//        console.log(value);
+//        second();
+       
+//        function second() {
+//            console.log(value);
+//            let value = 'inner';
+//        }
+//    }
+   
+//    first();
+// }
+// example3();
+
+function Calculator() {
+    this.add = function(a, b) {
+        return a + b;
+    };
+    this.subtract = function(a, b) {
+        return a - b;
+    };
+    this.multiply = function(a, b) {
+        return a * b;
+    };
+    this.divide = function(a, b) {
+        if (b === 0) {
+            return "Error: Cannot divide by zero";
+        }
+        return a / b;
+    };
+}
+
+// 계산기 객체 생성
+const calc = new Calculator();
+
+// 사용자 입력 처리
+let result = parseFloat(prompt("첫 번째 숫자 입력")); // 첫 번째 숫자 입력
+
+while (true) {
+const num2 = parseFloat(prompt("두 번째 숫자 입력")); // 두 번째 숫자 입력
+const operation = prompt("연산 선택(더하기, 빼기, 곱하기, 나누기):"); // 연산 선택
+
+// 연산 수행 및 결과 출력
+switch (operation.toLowerCase()) {
+    case "더하기":
+        result = calc.add(result, num2);
+        break;
+    case "빼기":
+        result = calc.subtract(result, num2);
+        break;
+    case "곱하기":
+        result = calc.multiply(result, num2);
+        break;
+    case "나누기":
+        result = calc.divide(result, num2);
+        break;
+    default:
+        result = "다시 입력하세요";
+}
+
+alert("결과값은" + result + "입니다")
+console.log(`Result: ${result}`); 
+
+const num3 = prompt("이어서 계산을 진행 하겠습니까? (예, 아니요)").toLowerCase()
+
+
+if(num3 === "아니요") {
+    break;
+}
+
+}
+
+
+    
+
+</script>
+</html>

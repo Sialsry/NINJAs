@@ -1,0 +1,15 @@
+/* 테블릿 사이즈 이상으로 넘어가면 데스크톱의 레이아웃 */
+@media only screen and (min-width : 992px) {
+    #wrap {
+        width: 100%;
+        background-color: blueviolet;
+        min-height: 100vh;
+    }
+
+    .mbile {
+        display: none !important; /* css 우선순위 가장 강력한 우선순위 */
+    }
+    
+}
+
+/* 모바일 기준 스타일 */

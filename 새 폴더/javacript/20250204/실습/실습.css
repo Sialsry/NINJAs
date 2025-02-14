@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.border > li > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 80px;
+    border: 1px solid;
+
+}
+
+.border > li {
+    display: flex;
+}
+
+.border > li > span > button{
+    position: absolute;
+    right: 10px; /* 버튼을 오른쪽 끝으로 이동 */
+}
+
+.border li span:last-child { /* 작성자 칸 */
+    justify-content: center; /* 기본적으로 작성자 이름을 가운데 정렬 */
+    position: relative;
+}
+
+.border li span:nth-child(3) { /* 작성자 칸 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    word-wrap: break-word;
+    min-width: 0;
+}

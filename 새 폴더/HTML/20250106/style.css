@@ -1,0 +1,36 @@
+/* 
+    브라우저의 화면 크기에 따라 스타일 적용
+    media query 미디어 쿼리
+    브라우저의 화면의 사이즈에 따라서 환경에 따라서 css 스타일을 적용 시킨다.
+*/
+
+@media only screen and (max-width : 1000px){
+    /* 오직 화면일때 최대 너비가 1000px 까지 스타일이 적용된다. */
+    /* 조건이 추가된것 여기에 작성한는 스타일 시트는 미디어쿼리에 작성한 조건 까지만 적용된다. */
+    .box{
+        width: 500px;
+        height: 500px;
+        border: 1px solid;
+        background-color: red;
+    }
+}
+
+@media only screen and (min-width : 500px) {
+    /* 500px 너비의 이상부터 적용할 시트 */
+
+    .box {
+        width: 500px;
+        height: 500px;
+        border: 1px solid;
+        background-color: blue;
+    }
+}
+
+
+/*
+ 스마트폰 최소 : 320px 아이폰 6 ~ 폴드는 340px 열었을때 탭의 기준
+ 스마트폰 일반 : 360px ~ 768px
+ 테블릿 일반 :  768px ~ 1024px
+ 데스크톱 : 1024px ~ 1920px 이 이상 커지게 되면 1920px의 화면의 크기를 가지고 고정 사이즈를 가지고 중앙 정렬   
+ 
+ */

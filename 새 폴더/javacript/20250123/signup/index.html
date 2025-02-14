@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">이메일</label>
+    <input type="text" class="email">
+    <label for="">비밀번호</label>
+    <input type="password" class="upw">
+    <button>회원가입</button>
+</body>
+    <script>
+        let signupBtn = document.querySelector('button');
+
+        // 정규식 체크 부분 함수 기능
+        const isEmail = (value) => {
+            // 이메일의 형식인지 체크
+            let regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+
+            /*
+                첫시작 문자열이 [0-9a-zA-Z] 패턴의 문자열로 시작 되어야 하는데 숫자 0~9까지 영어 대소문자 a ~ Z
+                ([-_\.]?[0-9a-zA-Z])*
+                [-_\.] : 하이픈 언더바 점 둘중에 하나가 올 수 있다. \. 이스케이프 문자 점도 특수문자가 아니라 문자로 
+                ? : 앞의 문자가 있을수도 있고 없을수도 있다.
+                * : 이 부분의 문자열이 여러번 반복 될 수 있다라는 의미
+            */
+
+            // 정규식 체크의 내용과 사용 메서드
+            return regExp.test(value); // true false
+        }
+        // 비밀번호 체크
+        const inPassWord = (value) => {
+            let regExp = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()\-_=+]).{8,16}$/;
+            return regExp.test(value);
+        }
+
+        signupBtn.onclick = () => {
+            let userEmail = document.querySelector('.email').value;
+            let upw = document.querySelector('.upw').value;
+            
+            if (isEmail(userEmail)) {
+                console.log("이메일 형식이 맞아")
+            }
+            if(inPassWord(upw)) {
+                console.log("비밀번호 형식이 맞아")
+            }
+            
+
+        }
+    </script>
+</html>

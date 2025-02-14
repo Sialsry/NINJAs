@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 30px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.comment > li {
+    margin-top: 20px;
+}
+
+.comment > li:nth-child(1) {
+    margin: 0;
+}
+
+.comment .comment-form > form > h4 {
+    width: 100%;
+    margin: 14px 0;
+}
+
+.comment-form > form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ps-box {
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 50px;
+    border: 1px solid #777;
+    padding:  10px 14px;
+    background-color:  #888;
+    box-sizing: border-box;
+}
+
+.ps-box > input {
+    outline: none; /*input의 기본 스타일 속성 테두리 제거*/
+}
+
+.int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    padding: 0 6px;
+    line-height: 30px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.btn {
+    width: 20%;
+    padding: 18px 0 12px;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+}
+
+.comment-row {
+    width: 100%;
+    display: flex;
+    height: 50px;
+    padding: 3px 6px;
+}
+
+.comment-row li {
+    border: 4px solid rgb(32, 33, 32);
+    padding:  20px 0;
+    text-overflow: ellipsis; /* overflow: hidden; 속성이 있고 부모 요소의 밖으로 나가면 ellipsis 보여줄 속성 */
+    white-space: nowrap; /* 문단 줄내림을 정의하는 속성 */
+    word-wrap: break-word; /* 글 단위의 줄내림을 정의하는 속성 */
+    overflow: hidden;
+}
+
+.comment-row li:nth-child(1){
+    width: 15%;
+    text-align: center;
+}
+.comment-row li:nth-child(2){
+    width: 50%;
+    padding: 3px 8px;
+}
+.comment-row li:nth-child(3){
+    width: 35%;
+    text-align: center;
+}

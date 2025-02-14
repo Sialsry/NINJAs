@@ -1,0 +1,51 @@
+.box {
+    border: 1px solid;
+    width: 300px;
+    height: 300px;
+}
+
+/* 자식 선택자 */
+.box img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50%;
+    transform: translateY(-50%); /* 요소의 위치를 이동시킬때 */
+}
+
+/* 형제 선택자 */
+.box.box-content-01 {
+    background-color: blueviolet;
+}
+
+.box.box.box-content-02 img {
+    transform: translate(50px, 50px); /* 요소의 위치에서 이동할 거리 + 자우는 왼쪽 상하는 아래쪽 - 그 반대*/
+}
+
+.box.box-content-03 img {
+        transform: rotate(45deg); /*회전시킬 각도의 단위*/
+}
+
+.box.box.box-content-04 img {
+    transform: scale(0.5); /*요소의 크기를 조정한다. 원본의 크기는 1이 100퍼센트 비율*/
+}
+
+/*선언한 부분*/
+@keyframes ani {
+    0% { /*0%만틈 진행될때*/
+        transform: translateY(-50%) rotate(0);
+    }
+    50% { /*50%만큼 진행될때 스타일*/
+        transform: translateY(-50%) rotate(360deg);
+
+    }
+    100% { /*100%만큼 진행될때 스타일*/
+        transform: translateY(-50%) rotate(0);
+    }
+}
+
+.box.box-content-05 {
+    /* 요소의 애니메이션 효과는 3초 동안 움직이고 선형보간 */
+    animation: ani 3s ease;
+    /* animation : 애니메이션 이름, 시간, 타이밍 함수 */
+}
