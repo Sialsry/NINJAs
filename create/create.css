@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(./images/background.jpg);
+
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+#logo_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#logo_container > img{
+    margin-left: 0.9vw;
+    width: 8vw;
+}
+
+#main_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#result {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* canvas {
+    margin-top: 10px;
+    cursor: crosshair;
+    background-color: white;
+} */
+
+button {
+    background-color: #474747;
+    color: white;
+    border: none;
+    margin: 0.5vw;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 2vw;
+    cursor: pointer;
+    border-radius: 0.5vw;
+}
+.colors > button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#eraser {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+#eraser i {
+    font-size: 20px;
+}
+
+.colors > button {
+    width: 40px;  
+    height: 40px;
+    border-radius: 5px; 
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#exit_btn {
+    position: absolute;
+
+    top: 73px; 
+    right: 13px; 
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.0vw;
+}
+
+#exit-container {
+    position: absolute;
+    top: 10px;  
+    right: 10px; 
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    cursor: pointer;
+}
+
+#exit-logo {
+    width: 120px; 
+    height: auto;
+}
+
+#size {
+    accent-color: black; 
+}
+
+#all_eraser {
+    width: 10vw;
+    background: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    padding: 10px 15px;
+    border-radius: 14px;
+    font-size: 1.2vw;
+    border: none;
+}
+
+
+
+#C_btn {
+    background: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    padding: 10px 15px;
+    border-radius: 14px;
+    font-size: 1.2vw;
+}
+
+.submit {
+    width: 10vw;
+    background: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    padding: 10px 15px;
+    border-radius: 14px;
+    font-size: 1.2vw;
+    border: none;
+}
+
+#exit_btn:hover {
+    background-color: rgb(97, 97, 97);
+}
+
+#all_eraser:hover {
+    background-color: rgb(184, 178, 178);
+}
+
+#C_btn:hover {
+    background-color: rgb(184, 178, 178);
+}
+
+.submit:hover {
+    background-color: rgb(184, 178, 178);
+}
+#canvas_box{
+    position: relative;
+}
+#canvas_box > img{
+    position: absolute;
+    width: 107%;
+    aspect-ratio: 1 / 0.785; 
+    margin-top: -3vw;
+    margin-left: -2.2vw;
+    z-index: -1;
+
+}
+canvas {
+    margin-top: 10px;
+    cursor: crosshair;
+    border-radius: 15px;
+}
+#Canvas-container {
+    display: flex;
+    flex-direction: column; /* 세로 방향 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    gap: 10px; /* 간격 조정 */
+    margin-top: 20px;
+}
+
+#size-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 5px; 
+    font-size: 20px;
+}
+
+
+#explanation {
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+#explanation-container > button{
+    margin-bottom: 23px;
+}
+
+#explanation-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.colors {
+    margin-right: 10px;
+}

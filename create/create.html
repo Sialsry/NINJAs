@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NINJA SKETCH</title>
+  <link rel="icon" href="/images/final_favicon_transparent.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./create.css">
+</head>
+
+<body>
+    <div id="logo_container">
+        <img src="/images/logo_noback/logo_noback.001.png" alt="">
+        <button id="C_btn">제시어 뽑기</button>
+        <img id="exit-logo"
+            src="../images/‘DALL·E 2025-02-12 10.19.08 - A hand-drawn style ninja logo with a sketch-like appearance, resembling something drawn in a simple digital painting app. The ninja should have a play’의 배경이 제거됨.png"
+            alt=""> 
+        <button id="exit_btn">나가기</button>
+    </div>
+    <div id="main_content">
+
+        <p id="result"></p>
+    
+    
+        <div class="colors">
+            <button id="black" style="background-color: black ;"></button>
+            <button id="red" style="background-color: red ;"></button>
+            <button id="orange" style="background-color: orange ;"></button>
+            <button id="yellow" style="background-color: yellow ;"></button>
+            <button id="green" style="background-color: green ;"></button>
+            <button id="blue" style="background-color: blue ;"></button>
+            <button id="violet" style="background-color: violet ;"></button>
+            <button id="eraser"><i class="fa-solid fa-eraser"></i></button>
+            <button id="all_eraser">전체 지우기</i></button>
+        </div>
+    
+        <div id="Canvas-container">
+    
+            <div id="size-container">
+                <label for="size">펜 두께:</label>
+                <input type="range" id="size" min="1" max="50" value="5">
+            </div>
+            <div id="canvas_box">
+                <img src="./images/1739647143620.png" alt="배경 이미지">
+                <div>
+                    <canvas id="Canvas" width="800" height="600"></canvas>
+                </div>
+            </div>
+        </div>
+    
+        <div id="explanation-container">
+            <input type="text" id="explanation" placeholder="그림에 대해 10자 이내로 설명하세요" maxlength="10">
+            <button class="submit">그림 올리기</button>
+        </div>
+    </div>
+
+
+    <script src="./create.js"></script>
+</body>
+
+</html>

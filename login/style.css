@@ -1,44 +1,241 @@
-*{
+
+* {
     margin: 0;
     padding: 0;
-}
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(./images/background.jpg);
 
-.items{
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .items {
+    background: rgba(255, 255, 255, 0.9);  
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-.popup {
-    width: 500px;
-    height: 500px;
-    background-color: beige;
-}
-
-.popup_finish{
-    width: 500px;
-    height: 500px;
-    background-color: beige;
-}
-
-#error_message, #error {
+  }
+  
+  .main_logo_v1 > img {
+    width: 600px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .items > h4 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .items input[type="text"],
+  .items input[type="password"] {
+    width: 280px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .items button {
+    width: 300px;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #474747;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .items button:hover {
+    background-color: #474747;
+  }
+  
+  .popup,
+  .popup_finish,
+  .nicknamePopup,
+  .newNincknamePopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .popup_content,
+  .check_popup,
+  .newNinckname_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .popup_content h3,
+  .check_popup h3,
+  .newNinckname_input h3 {
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .error_message {
     color: red;
-    font-size: 14px;
+    font-size: 0.9rem;
     margin-top: 5px;
-    display: none; /* 기본적으로 숨김 */
-}
-
-#nickError, #idError {
+    display: none;
+  }
+  .loginError_message {
     color: red;
-    font-size: 14px;
+    font-size: 0.9rem;
     margin-top: 5px;
-    display: none; /* 기본적으로 숨김 */
-}
+    display: none;
+  }
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 400px;
+    animation: fadeInScale 0.3s ease;
+  }
 
-.loginError_message{
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  .popup_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .popup_content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .popup_content input[type="text"],
+  .popup_content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .popup_content button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #007acc;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup_content button:hover {
+    background-color: #005b99;
+  }
+  
+
+  .error_message {
     color: red;
-    font-size: 14px;
+    font-size: 0.9rem;
     margin-top: 5px;
-    display: none; /* 기본적으로 숨김 */
-}
+    display: none;
+  }
+
+  .popup_finish {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 600px;
+    height: 300px;
+    animation: fadeInScale 0.3s ease;
+  }
+
+  .popup_fin_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }  
+  .popup_fin_content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    color: #333;
+  }
+
+  .popup_fin_content button {
+    width: 70%;
+    padding: 10px;
+    margin: 90px 0;
+    background-color: #007acc;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .popup_fin_content button:hover {
+    background-color: #005b99;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  
