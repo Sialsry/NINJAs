@@ -91,10 +91,11 @@ body {
 #go_to_main:hover {
     background-color: #303030;
 }
+/* 공통 팝업 스타일 */
 .popup,
 .popup_finish,
 .nicknamePopup,
-.newNincknamePopup {
+.newNicknamePopup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -106,27 +107,31 @@ body {
     border-radius: 8px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     animation: fadeInScale 0.3s ease;
 }
 
+/* 닉네임 변경 팝업 내부 공통 스타일 */
 .nicknamePopup,
-.check_popup,
-.newNinckname_input {
+.newNicknamePopup {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .nicknamePopup h3,
-.check_popup h3,
-.newNinckname_input h3 {
+.newNicknamePopup h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: #333;
+    text-align: center;
 }
 
 .nicknamePopup input[type="text"],
-.nicknamePopup input[type="password"] {
+.nicknamePopup input[type="password"],
+.newNicknamePopup input[type="text"] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -135,7 +140,8 @@ body {
     font-size: 1rem;
 }
 
-.nicknamePopup button {
+.nicknamePopup button,
+.newNicknamePopup button {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -148,18 +154,17 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-.nicknamePopup button:hover {
+.nicknamePopup button:hover,
+.newNicknamePopup button:hover {
     background-color: #303030;
 }
 
-.error_message,
-.loginError_message {
+.error_message {
     color: red;
     font-size: 0.9rem;
     margin-top: 5px;
     display: none;
 }
-
 @keyframes fadeInScale {
     from {
         opacity: 0;
@@ -170,6 +175,7 @@ body {
         transform: translate(-50%, -50%) scale(1);
     }
 }
+
 
 .popup_finish {
     width: 90%;
@@ -207,7 +213,7 @@ body {
     background-color: #303030;
 }
 
-/* 내이미지만 */
+
 #my_images_box {
     display: flex;
     flex-wrap: wrap;
