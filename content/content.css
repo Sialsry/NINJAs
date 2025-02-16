@@ -1,0 +1,251 @@
+body{
+    margin: 0;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    /* position: relative; */
+    font-family: 'Roboto', sans-serif;
+}
+/* #items{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+} */
+
+#logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    position: relative; /* 부모 요소 기준으로 정렬 */
+}
+
+.drawer {
+    flex-grow: 1; 
+    text-align: center;
+    font-size: 1.5rem; 
+}
+#logo{
+    width: 8vw; 
+}
+/* 오른쪽 로고 */
+#exit-logo {
+    width: 8vw; 
+    height: auto;
+    margin-right: 2vw;
+    position: relative; 
+    z-index: 1; 
+}
+
+#exit_btn {
+    position: absolute;
+    top: 80%; 
+    right: 5.5vw; 
+    transform: translateY(-50%); 
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7); 
+    border-radius: 10px;
+    font-size: 1.0vw;
+    border: none;
+    cursor: pointer;
+    color: white;
+    z-index: 2; 
+}
+#exit_btn:hover {
+    background-color: rgb(184, 178, 178);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container > h2{
+    margin-top: 3vw;
+}
+#image_box{
+    position: relative;
+}
+#canvas {
+    position: absolute;
+    max-width: 500px;
+    max-height: 500px;
+}
+a {
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: blue;
+}
+
+
+ul, li {
+list-style: none;
+}
+
+.comment {
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+padding: 30px;
+width: 600px;
+margin: 0 auto;
+}
+
+.comment > li {
+margin-top: 20px;
+}
+
+.comment > li:nth-child(1) {
+margin: 0;
+}
+
+.comment .comment-form > form > h4 {
+width: 100%;
+margin: 14px 0;
+}
+
+.comment-form > form {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.ps-box {
+display: block;
+position: relative;
+width: 80%;
+height: 50%;
+border: 1px solid #777;
+padding: 10px 14px;
+background-color: #888;
+box-sizing: border-box;
+}
+
+.ps-box > input {
+outline: none;
+}
+
+.int {
+display: block;
+position: relative;
+width: 100%;
+height: 30px;
+padding: 0 6px;
+line-height: 30px;
+font-size: 15px;
+box-sizing: border-box;
+}
+
+.btn {
+width: 20%;
+padding: 18px 0 16px;
+text-align: center;
+box-sizing: border-box;
+text-decoration: none;
+border: none;
+background-color: #333;
+color: white;
+font-size: 14px;
+}
+
+.comment-row {
+width: 100%;
+display: flex;
+height: 50px;
+padding: 3px 6px;
+}
+
+.comment-row li {
+border: 1px solid;
+padding: 20px 0;
+text-overflow: ellipsis;
+white-space: nowrap;
+word-wrap: break-word;
+overflow: hidden;
+}
+
+.comment-row li:nth-child(1) {
+width: 15%;
+text-align: center;
+}
+.comment-row li:nth-child(2) {
+width: 50%;
+padding: 20px 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.comment-row li:nth-child(3) {
+width: 35%;
+text-align: center;
+}
+
+
+
+
+.comment-update-btn {
+width: 250px;
+display: inline-block;
+
+text-overflow: ellipsis;
+white-space: nowrap;
+word-wrap: break-word;
+overflow: hidden;
+}
+
+
+.comment-delete-btn {
+position: relative;
+width: 24px;
+height: 24px;
+display: inline-block;
+}
+
+.comment-delete-btn::before,
+.comment-delete-btn::after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: red;
+top: 50%;
+left: 50%;
+border-radius: 2px;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.comment-delete-btn::before {
+transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.comment-update-cancel {
+position: relative;
+width: 24px;
+height: 24px;
+display: inline-block;
+}
+
+.comment-update-cancel::before,
+.comment-update-cancel::after {
+content: "";
+display: block;
+position: absolute;
+width: 100%;
+height: 4px;
+background-color: blue;
+top: 50%;
+left: 50%;
+border-radius: 2px;
+transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.comment-update-cancel::after {
+transform: translate(-50%, -50%) rotate(45deg);
+}

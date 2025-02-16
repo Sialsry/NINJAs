@@ -19,7 +19,7 @@ const showSignupSuccessPopup = (nickname) => {
 
     popupFin.innerHTML = `
         <div class="popup_fin_content">
-            <h3>${nickname}님, 회원가입이 완료되었습니다!</h3>
+            <h3>" ${nickname} "님, 회원가입이 완료되었습니다!</h3>
             <button id="return_login">로그인 페이지로 돌아가기</button>
         </div>
     `;
@@ -56,7 +56,7 @@ const signinPopup = () => {
 
             <button id="register_btn">가입하기</button>
             <button id="close_popup">닫기</button>
-        </div>
+        </div>  
     `;
 
     document.body.appendChild(popup);
@@ -108,6 +108,8 @@ const signinPopup = () => {
             idError.style.display = "none";
         }
     });
+    const point = 0
+    const stat = false
 
     document.getElementById("register_btn").addEventListener("click", () => {
         const nickname = userNickInput.value.trim();
@@ -139,7 +141,7 @@ const signinPopup = () => {
         if (isNicknameTaken || isIdTaken) return;
 
         // 유저정보 저장 *********************
-        users.push({ nickname, id: userid, password });
+        users.push({ nickname, id: userid, password, point, stat});
         localStorage.setItem("users", JSON.stringify(users));
         console.log("가입된 유저 목록:", users);
 
@@ -158,8 +160,8 @@ const signinPopup = () => {
 
 // 로그인 화면
 const loginUser = () => {
-    const userIdInput = document.querySelector('input[placeholder="아이디를 입력하세요."]');
-    const passwordInput = document.querySelector('input[placeholder="비밀번호를 입력하세요"]');
+    const userIdInput = document.getElementById("login_id")
+    const passwordInput = document.getElementById("login_password")
 
     const userid = userIdInput.value.trim();
     const password = passwordInput.value.trim();
@@ -188,7 +190,9 @@ const loginUser = () => {
     const userData = {
         nickname: validUser.nickname,
         id: validUser.id,
-        password: validUser.password 
+        password: validUser.password, 
+        point: 0,
+        stat: false
     };
 
     document.cookie = `loggedInUser=${encodeURIComponent(JSON.stringify(userData))}; path=/;`;
@@ -197,5 +201,5 @@ const loginUser = () => {
 
 
     window.location.href = "http://127.0.0.1:5502/index.html"; 
-};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ㅊㅊ츄
+};
 

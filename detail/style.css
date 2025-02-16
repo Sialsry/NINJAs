@@ -1,38 +1,208 @@
-.nicknamePopup, .newNicknamePopup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.check_popup, .newNickname_input {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-}
-
-input {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 8px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-button {
-    margin: 5px;
-    padding: 8px 16px;
-    cursor: pointer;
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.error_message {
+.items {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.main_logo_v1 > img {
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.items > h4 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#iden_style {
+    font-size: 1.5rem;
+    margin-bottom: 3vw;
+}
+
+.items input[type="text"],
+.items input[type="password"] {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.items button {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #474747;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.items button:hover {
+    background-color: #303030;
+}
+#go_to_main {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #474747;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#go_to_main:hover {
+    background-color: #303030;
+}
+.popup,
+.popup_finish,
+.nicknamePopup,
+.newNincknamePopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fadeInScale 0.3s ease;
+}
+
+.nicknamePopup,
+.check_popup,
+.newNinckname_input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nicknamePopup h3,
+.check_popup h3,
+.newNinckname_input h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.nicknamePopup input[type="text"],
+.nicknamePopup input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.nicknamePopup button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #474747;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nicknamePopup button:hover {
+    background-color: #303030;
+}
+
+.error_message,
+.loginError_message {
     color: red;
-    font-size: 14px;
-    margin: 5px 0;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.popup_finish {
+    width: 90%;
+    max-width: 600px;
+    height: 300px;
+}
+
+.popup_fin_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup_fin_content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    color: #333;
+}
+
+.popup_fin_content button {
+    width: 70%;
+    padding: 10px;
+    margin: 90px 0;
+    background-color: #474747;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.popup_fin_content button:hover {
+    background-color: #303030;
 }

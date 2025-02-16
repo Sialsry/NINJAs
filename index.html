@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-    <button id="logout_btn">로그아웃</button>
-    <button id="mypage_detail"> 내정보 상세 보기 </button>
+    <div class="left-container">
+      <img
+        src="./images/logo_noback/logo_noback.001.png"
+        id="Ninja">
+      <div class="user_box">
+        <div class="logined_User"></div>
+        <div>
+          <button id="mypage_detail">내 정보 보기</button>
+          <button id="logout_btn">로그아웃</button>
+          <button id="music_btn" >🎵</button>
+        </div>
+      </div>
+      <div id="ranking_list_container"></div>
+      <div><img class="draw" src="./images/brush_edit_v2/brush_edit_v2.001.png"></img></div>
+      
+  </div>
+  <div class="content-container">
+    <div class="cc-container">
+      <div id="images_content">
+        <h3>정답을 맞춰주세요 !</h3>
+        <img src="./images/1739647143620.png" alt="배경 이미지">
+        <div id="images_content_box">
+
+        </div>
+      </div>
+      <div id="completed_images_content">
+        <h3>정답을 맞춘 그림이에요 !</h3>
+        <img src="./images/1739647143620.png" alt="배경 이미지">
+        <div id="completed_images_content_box"></div> 
+      </div>
+    </div>
+  </div>
+  
 </body>
-<script src ="index.js"></script>
+<script src="index.js"></script>
+
 </html>
