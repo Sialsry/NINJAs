@@ -65,7 +65,7 @@
   }
   
   .items button:hover {
-    background-color: #474747;
+    background-color: #252424;
   }
   
   .popup,
@@ -162,7 +162,7 @@
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    background-color: #007acc;
+    background-color: #474747;
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -172,7 +172,7 @@
   }
   
   .popup_content button:hover {
-    background-color: #005b99;
+    background-color: #252424;
   }
   
 
@@ -214,7 +214,7 @@
     width: 70%;
     padding: 10px;
     margin: 90px 0;
-    background-color: #007acc;
+    background-color: #474747;
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -224,7 +224,7 @@
   }
 
   .popup_fin_content button:hover {
-    background-color: #005b99;
+    background-color: #252424;
   }
 
   @keyframes fadeInScale {

@@ -96,7 +96,7 @@ button:hover {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    z-index: 99;
 }
 
 .modal-content {
@@ -255,18 +255,24 @@ button:hover {
     max-height: 75vh; 
 }
 
-#images_content_box #completed_images_content_box::-webkit-scrollbar {
+#images_content_box::-webkit-scrollbar,
+#completed_images_content_box::-webkit-scrollbar {
     width: 6px; 
 }
 
-#images_content_box #completed_images_content_box::-webkit-scrollbar-thumb {
+#images_content_box::-webkit-scrollbar-thumb,
+#completed_images_content_box::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.3); 
-    border-radius: 3px; /
+    border-radius: 3px; 
 }
 
-#images_content_box #completed_images_content_box::-webkit-scrollbar-track {
+#images_content_box::-webkit-scrollbar-track,
+#completed_images_content_box::-webkit-scrollbar-track {
     background: transparent; 
 }
+
+ 
+
 
 .image-box {
     width: 48%;

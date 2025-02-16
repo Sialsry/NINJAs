@@ -133,7 +133,7 @@ body{
 #exit_btn {
     position: absolute;
     top: 80%; 
-    right: 5.5vw; 
+    right: 5.9vw; 
     transform: translateY(-50%); 
     padding: 5px 10px;
     background: rgba(0, 0, 0, 0.7); 
