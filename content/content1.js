@@ -3,17 +3,10 @@ function getQueryParam(name) {
     return urlParams.get(name);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
     const exitBtn = document.querySelector("#exit_btn");
-
-    if (!exitBtn) {
-        return;
-    }
-
     exitBtn.onclick = () => {
         window.location.href = "http://127.0.0.1:5502/index.html";
     };
-});
 
 
 const imageSrc = getQueryParam("image");
@@ -80,37 +73,49 @@ class Comment {
 
 
 
-
-
-
-
-
-
-// const drawer = JSON.parse(localStorage.getItem('images'))
-// console.log(drawer[0])
-
-
-
-const data = []
+// const data = []
 const submitHandler = (e) => {
     e.preventDefault()
-    const {uid, content, date} = e.target
-    const comment = new Comment(content.value)
-    data.push(comment)
-    const content_JSON = JSON.stringify(data)
-    localStorage.setItem(`comments${images[parseInt(imageSrc)-1].index}`, content_JSON)
+    const existingComments = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`)) || [];
+
+    // const {uid, content, date} = e.target
+    // const comment = new Comment(content.value)
+    const comment = new Comment(e.target.content.value);
+
+
+    // data.push(comment)
+    existingComments.push(comment);
+
+    localStorage.setItem(`comments${images[parseInt(imageSrc)-1].index}`, JSON.stringify(existingComments));
+
+    e.target.content.value = "";
+
+    // drawing();
+
+
+    // const content_JSON = JSON.stringify(data)
+    // localStorage.setItem(`comments${images[parseInt(imageSrc)-1].index}`, content_JSON)
+    
+    
+    
+    
+    
+    
+    
     let {value} = e.target.content // const value = e.target.content.value
     const newPoint = JSON.parse(localStorage.getItem('users'))
+
+
     
     if (userData.id === images[parseInt(imageSrc)-1].drawer) { // 이미지를 그린 사람이 댓글을 입력하려고 할 때
         alert('그림을 그린 사람은 댓글을 입력할 수 없습니다')
         e.preventDefault()
-        e.target.content.value = ""
+        // e.target.content.value = ""
     } else {
         if (value === images[parseInt(imageSrc)-1].word) {     // 정답 댓글 작성 시
             alert('정답입니다! 100포인트 획득.')
             document.querySelector(".int").disabled = true;
-            for (let i = 0; i < newPoint.length; i++) {
+            for (let i = 0; i < newPoint.length; i++) { // 
                 if (userData.id === newPoint[i].id) {
                     newPoint[i].point += 100
                     localStorage.setItem('users', JSON.stringify(newPoint))
@@ -120,24 +125,25 @@ const submitHandler = (e) => {
             localStorage.setItem('images', JSON.stringify(images))
             e.preventDefault()
             addState(value);
-            drawing();
-            e.target.content.value = ""
+            // drawing();
+            // e.target.content.value = ""
         }
         else if (value !== images[parseInt(imageSrc)-1].word) { // 정답이 아닌 댓글 작성 시
             e.preventDefault();
             addState(value);
             e.target.content.value = ""
-            const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
-            for (let i = 0; i < data.length; i++) {
+            // const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
+            // for (let i = 0; i < draw_comment.length; i++) {
                 
-                const {uid, content, date} = draw_comment[i]
-                document.querySelector('.comment-id').innerHTML = uid
-                document.querySelector('.comment-update-btn').innerHTML = content
-                document.querySelector('.comment-date').innerHTML = date        
-            }
-            drawing();
+            //     const {uid, content, date} = draw_comment[i]
+            //     document.querySelector('.comment-id').innerHTML = uid
+            //     document.querySelector('.comment-update-btn').innerHTML = content
+            //     document.querySelector('.comment-date').innerHTML = date        
+            // }
+            // drawing();
         }
     }
+    location.reload()
 }    
 
 const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`)) || []
@@ -198,30 +204,30 @@ const createContentWrap = (content) => { // 댓글 입력할 때 실행되는 �
     commentContent.append(comment, commentDeleteBtn) 
     return commentContent;    
 }
-const createUpdateBox = (content) => { // 댓글 수정할 때 실행되는 함수. 수정 인풋과 수정 취소 버튼 만듦.
-    const commentUpdateInput = document.createElement("input");
-    commentUpdateInput.classList.add("comment-update-input")
-    commentUpdateInput.value = content;
-    const commentDeleteBtn = document.createElement("span");
-    commentDeleteBtn.classList.add("comment-update-cancel")
-    const commentContent = document.createElement("li");
-    commentContent.append(commentUpdateInput, commentDeleteBtn)
-    commentUpdateInput.onkeyup = (e) => {
-        const {index} = e.target.parentNode.parentNode.dataset;
-        if (e.keyCode !== 13) return;
-        state[index].content = e.target.value;
-        state[index].update = !state[index].update;
-        drawing();
-    }
-    commentDeleteBtn.onclick = (e) => {
-        const {index} = e.target.parentNode.parentNode.dataset;
-        const flag = confirm("수정을 취소하겠습니까?")
-        if(!flag) return;
-        state[index].update = !state[index].update;
-        drawing()
-    }
-    return commentContent;
-}
+// const createUpdateBox = (content) => { // 댓글 수정할 때 실행되는 함수. 수정 인풋과 수정 취소 버튼 만듦.
+//     const commentUpdateInput = document.createElement("input");
+//     commentUpdateInput.classList.add("comment-update-input")
+//     commentUpdateInput.value = content;
+//     const commentDeleteBtn = document.createElement("span");
+//     commentDeleteBtn.classList.add("comment-update-cancel")
+//     const commentContent = document.createElement("li");
+//     commentContent.append(commentUpdateInput, commentDeleteBtn)
+//     commentUpdateInput.onkeyup = (e) => {
+//         const {index} = e.target.parentNode.parentNode.dataset;
+//         if (e.keyCode !== 13) return;
+//         state[index].content = e.target.value;
+//         state[index].update = !state[index].update;
+//         drawing();
+//     }
+//     commentDeleteBtn.onclick = (e) => {
+//         const {index} = e.target.parentNode.parentNode.dataset;
+//         const flag = confirm("수정을 취소하겠습니까?")
+//         if(!flag) return;
+//         state[index].update = !state[index].update;
+//         drawing()
+//     }
+//     return commentContent;
+// }
 
 
 
@@ -250,15 +256,18 @@ const clickHandler = (e) => { // 클릭이벤트 발생하는 경우: 1. 작성�
 // document.querySelector('.comment-update-btn').innerHTML = content
 // document.querySelector('.comment-date').innerHTML = date        
 
-// for (let i = 0; i < draw_comment.length; i++) {
-//     const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
-//     const {uid, content, date} = draw_comment[i]
-//     // drawing()
-//     document.querySelector('.comment-id').innerHTML = uid
-//     document.querySelector('.comment-update-btn').innerHTML = content
-//     document.querySelector('.comment-date').innerHTML = date        
-// }
+for (let i = 0; i < draw_comment.length; i++) {
+    const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
+    const {uid, content, date} = draw_comment[i]
+    drawing()
+    document.querySelector('.comment-id').innerHTML = uid
+    document.querySelector('.comment-update-btn').innerHTML = content
+    document.querySelector('.comment-date').innerHTML = date        
+}
 
-drawing()
+
+
+// localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`) ? drawing() :
+// drawing()    
 commentFrm.onsubmit = submitHandler;
 
