@@ -40,7 +40,7 @@ arr.forEach((e) => {
     img.onclick = () => viewImage(e.index);
     img.classList.add("image-content"); 
     const savedImages = JSON.parse(localStorage.getItem("images")) || [];
-    console.log(savedImages[e.index - 1]);
+    console.log(savedImages);
     if (savedImages[e.index - 1].stat === true) {
         imgBox.classList.add("completed-box"); 
         const completedImagesBox = document.getElementById("completed_images_content_box");

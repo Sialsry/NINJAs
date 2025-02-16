@@ -3,17 +3,17 @@ function getQueryParam(name) {
     return urlParams.get(name);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const exitBtn = document.querySelector("#exit_btn");
+const exitBtn = document.querySelector("#exit_btn");
 
-    if (!exitBtn) {
-        return;
-    }
+exitBtn.onclick = () => {
+    window.location.href = "http://127.0.0.1:5502/index.html";
+};
+// document.addEventListener("DOMContentLoaded", () => {
 
-    exitBtn.onclick = () => {
-        window.location.href = "http://127.0.0.1:5502/index.html";
-    };
-});
+//     if (!exitBtn) {
+//         return;
+//     }
+// });
 
 const imageSrc = getQueryParam("image");
 let images = JSON.parse(localStorage.getItem("images")) || [];
@@ -73,6 +73,15 @@ if (userData.id === images[parseInt(imageSrc)-1].drawer) { // 이미지를 그�
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -198,10 +207,18 @@ const createContentWrap = (content) => {
     return commentContent;
 };
 
+function getChildIndex(element) {
+    let index = 0;
+    while (element.previousElementSibling) {
+        element = element.previousElementSibling;
+        index++;
+    }
+    return index;
+}
 const clickHandler = (e) => {
     const savedComments = JSON.parse(localStorage.getItem(storedCommentsKey)) || [];
-    const index = e.target.parentNode.parentNode.dataset.index;
-
+    let index = e.target.parentNode.parentNode.dataset.index;
+    
     if (e.target.className === "comment-update-btn") {
         savedComments[index].update = !savedComments[index].update;
         localStorage.setItem(storedCommentsKey, JSON.stringify(savedComments));
@@ -209,13 +226,19 @@ const clickHandler = (e) => {
     } else {
         const flag = confirm("댓글을 삭제하시겠습니까?");
         if (flag) {
-            savedComments.splice(index, 1);
+            index = e.target.parentNode.parentNode
+            console.log(e.target.parentNode.parentNode);
+            savedComments.splice(getChildIndex(index), 1);
             localStorage.setItem(storedCommentsKey, JSON.stringify(savedComments));
             setTotalRecord();
             drawing();
         }
     }
 };
+
+
+
+
 
 drawing();
 commentFrm.onsubmit = submitHandler;
