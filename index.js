@@ -79,7 +79,7 @@ const getCookie = (name) => {
 };
 // 현재 로그인된 사용자 정보 가져오기 
 const userDataStr = getCookie("loggedInUser");
-const userData = userDataStr ? JSON.parse(userDataStr) : null;
+const userData = userDataStr ? JSON.parse(userDataStr) : null; 
 const cookieArr = Object.entries(userData);
 console.log(cookieArr[0][1])
 
@@ -88,7 +88,6 @@ document.querySelector('.logined_User').innerHTML = `${cookieArr[0][1]} 님 환�
 const usersData = JSON.parse(localStorage.getItem("users")) || [];
 
 usersData.sort((a, b) => b.point - a.point);
-
 // const topRanking = document.getElementById("topRanking");
 
 const rankingListContainer = document.getElementById("ranking_list_container")

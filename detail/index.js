@@ -8,14 +8,57 @@ const getCookie = (name) => {
     return null;
 };
 
-// 현재 로그인된 사용자 정보 가져오기
 const userDataStr = getCookie("loggedInUser");
-const userData = userDataStr ? JSON.parse(userDataStr) : null; 
+const userData = userDataStr ? JSON.parse(userDataStr) : null;
+
+// 점수 높은 순으로 정렬
+const usersData = JSON.parse(localStorage.getItem("users")) || [];
+usersData.sort((a, b) => b.point - a.point);
+
+if (userData) {
+    document.getElementById("current_nickname").textContent = userData.nickname;
+
+    const currentUser = usersData.find(user => user.id === userData.id);
+    if (currentUser) {
+        document.getElementById("user_score").textContent = `${currentUser.point}점`;
+
+        const rank = usersData.findIndex(user => user.id === userData.id) + 1;
+        document.getElementById("user_rank").textContent = `${rank}위`;
+    }
+}
+
+// 이미지 클릭 시 상세 페이지 이동 함수
+function viewImage(imageSrc) {
+    window.location.href = `../content/content.html?image=` + imageSrc;
+}
+
+const arr = JSON.parse(localStorage.getItem("images")) || [];
+
 
 if (userData) {
     document.getElementById("current_nickname").textContent = userData.nickname;
 }
+const myImagesBox = document.getElementById("my_images_box");
 
+const myImage = () => {
+    const myDrawings = arr.filter(image => image.drawer === userData.id);
+
+    myImagesBox.innerHTML = "";
+
+    myDrawings.forEach(image => {
+        const imgBox = document.createElement("div");
+        imgBox.classList.add("my_images");
+
+        const img = document.createElement("img");
+        img.src = image.src;
+        img.onclick = () => viewImage(image.index);
+
+        imgBox.appendChild(img);
+        myImagesBox.appendChild(imgBox);
+    });
+};
+
+myImage();
 // 닉네임 변경 팝업 열기
 const openNicknamePopup = () => {
     if (document.querySelector(".nicknamePopup")) return;

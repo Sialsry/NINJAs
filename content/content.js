@@ -7,12 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const exitBtn = document.querySelector("#exit_btn");
 
     if (!exitBtn) {
-        console.error("❌ exit_btn 요소를 찾을 수 없습니다.");
         return;
     }
 
     exitBtn.onclick = () => {
-        console.log("✅ exit_btn 클릭됨!"); // 디버깅용 콘솔 출력
         window.location.href = "http://127.0.0.1:5502/index.html";
     };
 });
