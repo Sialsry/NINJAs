@@ -53,11 +53,11 @@ body{
     color: white;
     z-index: 2; 
 }
-#exit_btn:hover {
+.submit:hover {
     background-color: rgb(184, 178, 178);
 }
 
-.container {
+/* .container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -66,23 +66,35 @@ body{
 }
 .container > h2{
     margin-top: 3vw;
+} */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#image_box{
+#image_box {
     position: relative;
+    width: 55%;  
+    height: 42vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
 }
-#canvas {
+#canvas{
     position: absolute;
-    max-width: 500px;
-    max-height: 500px;
+    width: 100%;
+    aspect-ratio: 1 / 0.785; 
+    z-index: 10;
 }
-a {
-    margin-top: 20px;
-    text-decoration: none;
-    font-size: 18px;
-    color: blue;
+#displayedImage{
+    position: absolute;
+    width: 95%;
+    object-fit: cover;
 }
-
-
+.explain{
+    text-align: center;
+}
 ul, li {
 list-style: none;
 }
