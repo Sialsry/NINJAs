@@ -21,6 +21,97 @@ body{
     padding: 10px 20px;
     position: relative; /* 부모 요소 기준으로 정렬 */
 }
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10vw;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 30px;
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgba(112, 140, 169, 0.5);
+    border: 2px solid rgba(85, 121, 158, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+/* -----------입력창------------ */
+.ps-box {
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 50%;
+    padding: 10px 14px;
+    background-color: #888;
+    box-sizing: border-box;
+    border: 2px solid #09629c;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .ps-box > input {
+    outline: none;
+    }
+    
+    .int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    padding: 0 6px;
+    line-height: 30px;
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: none;
+    }
+    
+    .btn {
+    width: 20%;
+    /* padding: 18px 0 16px;     */
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid #09629c;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+/* ----------------입력창-----------*/
+/* ----------------입력되는 댓글 -----------*/
+
+    .comment > li {
+    margin-top: 20px;
+    }
+    
+    .comment-id, .comment-date {
+        line-height: 9px;
+        background-color: #5b82a6;
+        font-size: 20px;
+        border: 1px #8cb68d;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    .comment-id + li {
+        background-color: whitesmoke;
+        font-size: 20px;
+        border: 2px solid #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* ----------------입력되는 댓글 -----------*/
+
 
 .drawer {
     flex-grow: 1; 
@@ -71,11 +162,14 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin-left: 5vw;
+    margin-bottom: 5vw;
 }
 #image_box {
     position: relative;
-    width: 55%;  
-    height: 42vw; 
+    width: 100%;  
+    height: 33vw; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,17 +177,19 @@ body{
 }
 #canvas{
     position: absolute;
-    width: 100%;
+    width: 800px;
     aspect-ratio: 1 / 0.785; 
     z-index: 10;
 }
 #displayedImage{
     position: absolute;
-    width: 95%;
+    width: 80%;
+    top: 6vw;
     object-fit: cover;
 }
 .explain{
     text-align: center;
+    width: 800px;
 }
 ul, li {
 list-style: none;

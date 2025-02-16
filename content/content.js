@@ -41,13 +41,13 @@ for (let i = 0; i < cookies.length; i++) {
         break; 
     }
 }
-console.log(result);
 return result;
 };
 // 현재 로그인된 사용자 정보 가져오기 
 const userDataStr = getCookie("loggedInUser");
 const userData = userDataStr ? JSON.parse(userDataStr) : null;
 const cookieArr = Object.entries(userData);
+
 
 if (images[parseInt(imageSrc)-1].stat === true) {  // 이미 정답을 맞춘 그림일 때
     document.querySelector(".int").disabled = true;
@@ -68,7 +68,7 @@ class Comment {
     constructor(content) {
         this.uid = user.uid;
         this.content = content;
-        this.date = this.getToday("-")
+        this.date = this.getToday(":")
         this.update = false;
     }
     getToday(text) {
@@ -101,10 +101,6 @@ const submitHandler = (e) => {
     data.push(comment)
     const content_JSON = JSON.stringify(data)
     localStorage.setItem(`comments${images[parseInt(imageSrc)-1].index}`, content_JSON)
-    
-    
-    const userDataStr = getCookie("loggedInUser");
-    const userData = userDataStr ? JSON.parse(userDataStr) : null;
     let {value} = e.target.content // const value = e.target.content.value
     const newPoint = JSON.parse(localStorage.getItem('users'))
     
@@ -132,48 +128,42 @@ const submitHandler = (e) => {
         else if (value !== images[parseInt(imageSrc)-1].word) { // 정답이 아닌 댓글 작성 시
             e.preventDefault();
             addState(value);
-            drawing();
             e.target.content.value = ""
-            // const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
-            // for (let i = 0; i < data.length; i++) {
+            const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
+            for (let i = 0; i < data.length; i++) {
                 
-            //     const {uid, content, date} = draw_comment[i]
-            //     document.querySelector('.comment-id').innerHTML = uid
-            //     document.querySelector('.comment-update-btn').innerHTML = content
-            //     document.querySelector('.comment-date').innerHTML = date        
-            // }
+                const {uid, content, date} = draw_comment[i]
+                document.querySelector('.comment-id').innerHTML = uid
+                document.querySelector('.comment-update-btn').innerHTML = content
+                document.querySelector('.comment-date').innerHTML = date        
+            }
+            drawing();
         }
     }
 }    
 
-
-
-const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc-1)].index}`)) || []
-console.log(images[parseInt(imageSrc)])
-
+const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`)) || []
 const state = draw_comment
 const addState = (value) => {
     if (value.trim() === "") return;
     state.push(new Comment(value.trim()))
-
-    console.log(state)
     setTotalRecord();
 }
 const setTotalRecord = () => {
     const totalRecord = document.querySelector("h4 > span");
     totalRecord.innerHTML = state.length;
 }
-
-
-
-
-
 const drawing = () => {
     commentList.innerHTML = "";
     for (let i = 0; i < state.length; i++) {
         commentList.append(creatRow(i));
     }
 }
+
+
+
+
+
 const creatRow = (index) => {
     console.log(state[index])
     const item = state[index];
@@ -254,15 +244,23 @@ const clickHandler = (e) => { // 클릭이벤트 발생하는 경우: 1. 작성�
     }
 }
 
-for (let i = 0; i < draw_comment.length; i++) {
-                const draw_comment = JSON.parse(localStorage.getItem(`comments${images[i].index}`))
-                const {uid, content, date} = draw_comment[i]
-                drawing()
-                document.querySelector('.comment-id').innerHTML = uid
-                document.querySelector('.comment-update-btn').innerHTML = content
-                document.querySelector('.comment-date').innerHTML = date        
-}
+// const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`)) || []
+// const {uid, content, date} = draw_comment[parseInt(imageSrc)-1]
 
+// drawing()
+// document.querySelector('.comment-id').innerHTML = uid
+// document.querySelector('.comment-update-btn').innerHTML = content
+// document.querySelector('.comment-date').innerHTML = date        
 
+// for (let i = 0; i < draw_comment.length; i++) {
+//     const draw_comment = JSON.parse(localStorage.getItem(`comments${images[parseInt(imageSrc)-1].index}`))
+//     const {uid, content, date} = draw_comment[i]
+//     // drawing()
+//     document.querySelector('.comment-id').innerHTML = uid
+//     document.querySelector('.comment-update-btn').innerHTML = content
+//     document.querySelector('.comment-date').innerHTML = date        
+// }
+
+drawing()
 commentFrm.onsubmit = submitHandler;
 
