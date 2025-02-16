@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const imageSrc = getQueryParam("image");
-const images = JSON.parse(localStorage.getItem("images")) || [];
+let images = JSON.parse(localStorage.getItem("images")) || [];
 
 if (imageSrc) {
     document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src;
@@ -45,6 +45,12 @@ const userDataStr = getCookie("loggedInUser");
 const userData = userDataStr ? JSON.parse(userDataStr) : null;
 const cookieArr = Object.entries(userData);
 
+// function removeItemByProperty(key, property, value) {
+//     let images = JSON.parse(localStorage.getItem(key)) || [];
+
+//     images = images.filter(item => item[property] !== value);
+//     localStorage.setItem(key, JSON.stringify(images));
+// }
 if (images[parseInt(imageSrc)-1].stat === true) {  // 이미 정답을 맞춘 그림일 때
     document.querySelector(".int").disabled = true;
     document.querySelector(".int").placeholder = "이미 정답을 맞춘 그림입니다.";
@@ -52,7 +58,24 @@ if (images[parseInt(imageSrc)-1].stat === true) {  // 이미 정답을 맞춘 �
 if (userData.id === images[parseInt(imageSrc)-1].drawer) { // 이미지를 그린 사람이 댓글을 입력하려고 할 때
     document.querySelector(".int").disabled = true;
     document.querySelector(".int").placeholder = '본인의 그림에는 댓글을 입력할 수 없습니다.';
+    let deleteDrawing = document.createElement('button')
+    document.querySelector('.container').appendChild(deleteDrawing);
+    deleteDrawing.innerHTML = '그림 삭제';
+    deleteDrawing.onclick = () => {
+        if (confirm('정말로 그림을 삭제하시겠습니까?')) {
+            // images.splice(parseInt(imageSrc)-1, 1);
+            // localStorage.setItem('images', JSON.stringify(images));
+            images = images.filter(item => item.index !== parseInt(imageSrc)-1);
+            localStorage.setItem('images', JSON.stringify(images));
+    
+            window.location.href = '/index.html';
+    
+        }
+    }
 }
+
+
+
 
 // --------------------------------------------------------------아래로 댓글 영역--------------------------------------------------------------
 

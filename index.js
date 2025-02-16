@@ -35,32 +35,43 @@ const arr = JSON.parse(localStorage.getItem("images")) || []
 arr.forEach((e) => {
     const imgBox = document.createElement("div"); 
     imgBox.classList.add("image-box"); 
-
     const img = document.createElement("img");
     img.src = e.src;
     img.onclick = () => viewImage(e.index);
     img.classList.add("image-content"); 
-
     const savedImages = JSON.parse(localStorage.getItem("images")) || [];
-    
+    console.log(savedImages[e.index - 1]);
     if (savedImages[e.index - 1].stat === true) {
         imgBox.classList.add("completed-box"); 
-
         const completedImagesBox = document.getElementById("completed_images_content_box");
         if (completedImagesBox) {
             completedImagesBox.appendChild(imgBox);
         }
     } else if (savedImages[e.index - 1].stat === false) {
         imgBox.classList.add("incomplete-box"); 
-
         const imagesContentBox = document.getElementById("images_content_box");
         if (imagesContentBox) {
             imagesContentBox.appendChild(imgBox);
         }
     }
-
     imgBox.appendChild(img); // 박스 안에 이미지 추가
 });
+// arr.forEach((e) => {
+//     const img = document.createElement('img');
+//     img.src = e.src;
+//     img.onclick = () => viewImage(e.index);
+//     // console.log(JSON.parse(localStorage.getItem('images'))[e.index-1])
+//     if (JSON.parse(localStorage.getItem('images'))[e.index-1].stat === true) {
+//         completed_images_content.appendChild(img);
+//     } else if (JSON.parse(localStorage.getItem('images'))[e.index-1].stat === false) {
+//         images_content.appendChild(img);
+//     }    
+// })
+
+
+
+
+
 
 
 
