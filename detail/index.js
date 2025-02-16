@@ -1,38 +1,72 @@
 // 사용자 정보 가져오기
 const getCookie = (name) => {
     let cookies = document.cookie.split("; ");
-    let result;
-
     for (let i = 0; i < cookies.length; i++) {
-        let [key, value] = cookies[i].split("="); 
-        if (name === key.trim()) { 
-            result = decodeURIComponent(value);
-            break; 
-        }
+        let [key, value] = cookies[i].split("=");
+        if (name === key.trim()) return decodeURIComponent(value);
     }
-
-    console.log(result);
-    return result;
+    return null;
 };
 
-// 현재 로그인된 사용자 정보 가져오기 
 const userDataStr = getCookie("loggedInUser");
-const userData = userDataStr ? JSON.parse(userDataStr) : null; 
-console.log(userData);
+const userData = userDataStr ? JSON.parse(userDataStr) : null;
+
+// 점수 높은 순으로 정렬
+const usersData = JSON.parse(localStorage.getItem("users")) || [];
+usersData.sort((a, b) => b.point - a.point);
+
+if (userData) {
+    document.getElementById("current_nickname").textContent = userData.nickname;
+
+    const currentUser = usersData.find(user => user.id === userData.id);
+    if (currentUser) {
+        document.getElementById("user_score").textContent = `${currentUser.point}점`;
+
+        const rank = usersData.findIndex(user => user.id === userData.id) + 1;
+        document.getElementById("user_rank").textContent = `${rank}위`;
+    }
+}
+
+// 이미지 클릭 시 상세 페이지 이동 함수
+function viewImage(imageSrc) {
+    window.location.href = `../content/content.html?image=` + imageSrc;
+}
+
+const arr = JSON.parse(localStorage.getItem("images")) || [];
+
 
 if (userData) {
     document.getElementById("current_nickname").textContent = userData.nickname;
 }
-// 닉네임 변경을 위해 로그인 정보 확인 팝업
-const nicknamePopup = () => {
+const myImagesBox = document.getElementById("my_images_box");
+
+const myImage = () => {
+    const myDrawings = arr.filter(image => image.drawer === userData.id);
+
+    myImagesBox.innerHTML = "";
+
+    myDrawings.forEach(image => {
+        const imgBox = document.createElement("div");
+        imgBox.classList.add("my_images");
+
+        const img = document.createElement("img");
+        img.src = image.src;
+        img.onclick = () => viewImage(image.index);
+
+        imgBox.appendChild(img);
+        myImagesBox.appendChild(imgBox);
+    });
+};
+
+myImage();
+// 닉네임 변경 팝업 열기
+const openNicknamePopup = () => {
     if (document.querySelector(".nicknamePopup")) return;
 
-    const checkPopup = document.createElement("div");
-    checkPopup.classList.add("nicknamePopup");
-
-    checkPopup.innerHTML = `
-    <div class="check_popup">
-        <div class="popup_content">
+    const popup = document.createElement("div");
+    popup.classList.add("nicknamePopup");
+    popup.innerHTML = `
+        <div class="check_popup">
             <h3>닉네임 변경</h3>
             <input type="text" id="verify_id" placeholder="아이디 입력">
             <input type="password" id="verify_password" placeholder="비밀번호 입력">
@@ -42,113 +76,102 @@ const nicknamePopup = () => {
             <button id="verify_btn">확인</button>
             <button id="close_popup">닫기</button>
         </div>
-    </div>
-`;
+    `;
+    document.body.append(popup);
 
-    document.body.append(checkPopup);
-    
-    // verify_btn 클릭 이벤트 부분 수정
-document.getElementById("verify_btn").addEventListener("click", () => {
+    document.getElementById("verify_btn").addEventListener("click", verifyUser);
+    document.getElementById("close_popup").addEventListener("click", () => popup.remove());
+};
+
+// 사용자 정보 검증
+const verifyUser = () => {
     const verifyId = document.getElementById("verify_id").value.trim();
     const verifyPassword = document.getElementById("verify_password").value.trim();
     const errorMsg = document.getElementById("verify_error");
 
-    console.log("입력된 ID:", verifyId);
-    console.log("입력된 Password:", verifyPassword);
-
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    console.log("저장된 사용자 목록:", users);
-    
     const validUser = users.find(user => user.id === verifyId && user.password === verifyPassword);
 
     if (!validUser) { 
         errorMsg.style.display = "block";
         return;
-    } else {
-        errorMsg.style.display = "none";
-    }
-    
-    checkPopup.remove(); // 첫 번째 팝업 닫기
-    
-    // 함수 호출 전 확인
-    addNewNicknameInput(validUser, users);
-});
-
-// addNewNicknameInput 함수 수정
-const addNewNicknameInput = (validUser, users) => {
-
-    if (document.querySelector(".newNicknamePopup")) {
-        return;
     }
 
-    const newNicknamePopup = document.createElement("div");
-    newNicknamePopup.classList.add("newNicknamePopup");
+    document.querySelector(".nicknamePopup").remove(); 
+    openNewNicknamePopup(validUser, users);
+};
 
-    newNicknamePopup.innerHTML = `
+// 닉네임 변경 팝업 열기
+const openNewNicknamePopup = (validUser, users) => {
+    if (document.querySelector(".newNicknamePopup")) return;
+
+    const popup = document.createElement("div");
+    popup.classList.add("newNicknamePopup");
+    popup.innerHTML = `
         <div class="newNickname_input">
             <h3>변경할 닉네임을 입력하세요</h3>
             <input type="text" id="newNickname_input" placeholder="닉네임 입력">
-            <p class="error_message" id="errorMsgText" style="display:none; color: red;">
-                닉네임은 최대 5자까지 입력 가능합니다. 
+            <p id="errorMsgText" class="error_message" style="display:none; color: red;">
+                닉네임은 최대 5자까지 입력 가능합니다.
             </p>
-            <p class="error_message" id="errorMsgExist" style="display:none; color: red;">
-                이미 존재하는 닉네임입니다. 
-            </p>    
+            <p id="errorMsgExist" class="error_message" style="display:none; color: red;">
+                이미 존재하는 닉네임입니다.
+            </p>
             <button id="new_verify_btn">변경하기</button>
-            <button id="return_btn">변경 취소하기</button>
+            <button id="return_btn">취소</button>
         </div>
     `;
     
-    document.body.append(newNicknamePopup);
+    document.body.append(popup);
+    const newNicknameInput = document.getElementById("newNickname_input");
 
-    const newNickname = document.getElementById("newNickname_input");
-    const errorMsgText = document.getElementById("errorMsgText");
+    newNicknameInput.addEventListener("input", () => {
+        const newValue = newNicknameInput.value.trim();
+        if (newValue.length > 5) {
+            document.getElementById("errorMsgText").style.display = "block";
+            newNicknameInput.value = newValue.slice(0, 5);
+        } else {
+            document.getElementById("errorMsgText").style.display = "none";
+        }
+    });
+
+    document.getElementById("new_verify_btn").addEventListener("click", () => changeNickname(validUser, users));
+    document.getElementById("return_btn").addEventListener("click", () => popup.remove());
+};
+
+// 닉네임 변경 처리
+const changeNickname = (validUser, users) => {
+    const newNickname = document.getElementById("newNickname_input").value.trim();
     const errorMsgExist = document.getElementById("errorMsgExist");
 
-    // 닉네임 입력 이벤트
-    newNickname.addEventListener("input", () => {
-        const newNicknameValue = newNickname.value.trim();
-        if (newNicknameValue.length > 5) {
-            errorMsgText.style.display = "block";
-            newNickname.value = newNicknameValue.slice(0, 5);
-        } else {
-            errorMsgText.style.display = "none";
-        }
-    });
+    if (users.some(user => user.nickname === newNickname)) {
+        errorMsgExist.style.display = "block";
+        return;
+    }
 
-    // 변경하기 버튼 이벤트
-    document.getElementById("new_verify_btn").addEventListener("click", () => {
-        const newNicknameValue = newNickname.value.trim();
-        
-        if (users.some(user => user.nickname === newNicknameValue)) {
-            errorMsgExist.style.display = "block";
-            return;
-        } else {
-            errorMsgExist.style.display = "none";
-        }
+    errorMsgExist.style.display = "none";
+    validUser.nickname = newNickname;
+    localStorage.setItem("users", JSON.stringify(users));
 
-        validUser.nickname = newNicknameValue;
-        localStorage.setItem("users", JSON.stringify(users));
-        console.log(newNicknameValue);
+    const updatedUserData = {
+        nickname: newNickname,
+        id: validUser.id,
+        password: validUser.password
+    };
 
-        const userData = {
-            nickname: newNicknameValue,
-            id: validUser.id,
-            password: validUser.password
-        };
-
-        document.cookie = `loggedInUser=${encodeURIComponent(JSON.stringify(userData))}; path=/;`;
-        document.getElementById("current_nickname").textContent = newNicknameValue;
-
-        newNicknamePopup.remove();
-    });
-
-    document.getElementById("return_btn").addEventListener("click", () => {
-        newNicknamePopup.remove();
-    });
-};
+    document.cookie = `loggedInUser=${encodeURIComponent(JSON.stringify(updatedUserData))}; path=/;`;
+    document.getElementById("current_nickname").textContent = newNickname;
+    
+    document.querySelector(".newNicknamePopup").remove();
 };
 
-document.getElementById("edit_nickname_btn").addEventListener("click", () => {
-    nicknamePopup();
-} );
+// 닉네임 수정 버튼 이벤트 리스너 추가
+document.getElementById("edit_nickname_btn").addEventListener("click", openNicknamePopup);
+
+// 메인 페이지로 돌아가기 버튼 기능 추가
+const goToMainBtn = document.getElementById("go_to_main");
+if (goToMainBtn) {
+    goToMainBtn.addEventListener("click", () => {
+        window.location.href = "http://127.0.0.1:5502/index.html";
+    });
+}

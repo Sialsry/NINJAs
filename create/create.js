@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sizeInput = document.getElementById("size"); 
 
     // 캔버스 크기 설정
-    canvas.width = 500;
-    canvas.height = 400;
+    canvas.width = 800;
+    canvas.height = 600;
     canvas.style.border = "2px solid black";
     
     // 초기 설정
@@ -229,7 +229,7 @@ console.log(cookieArr)
     });
 });
 
-document.querySelector('#exit-container').onclick =() => {
+document.querySelector('#exit_btn').onclick =() => {
     window.location.href = 'http://127.0.0.1:5502/index.html'
 }
 

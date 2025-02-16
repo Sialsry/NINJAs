@@ -1,25 +1,196 @@
-.container {
-    text-align: center;
-    margin-top: 50px;
+body{
+    margin: 0;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    /* position: relative; */
+    font-family: 'Roboto', sans-serif;
 }
-img {
-    max-width: 500px;
-    max-height: 500px;
-    border: 3px solid #000;
+/* #items{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+} */
+
+#logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    position: relative; /* 부모 요소 기준으로 정렬 */
 }
-a {
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10vw;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 30px;
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgba(112, 140, 169, 0.5);
+    border: 2px solid rgba(85, 121, 158, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+/* -----------입력창------------ */
+.ps-box {
     display: block;
-    margin-top: 20px;
+    position: relative;
+    width: 80%;
+    height: 50%;
+    padding: 10px 14px;
+    background-color: #888;
+    box-sizing: border-box;
+    border: 2px solid #09629c;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .ps-box > input {
+    outline: none;
+    }
+    
+    .int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    padding: 0 6px;
+    line-height: 30px;
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border: none;
+    }
+    
+    .btn {
+    width: 20%;
+    /* padding: 18px 0 16px;     */
+    text-align: center;
+    box-sizing: border-box;
     text-decoration: none;
-    font-size: 18px;
-    color: blue;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid #09629c;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+/* ----------------입력창-----------*/
+/* ----------------입력되는 댓글 -----------*/
+
+    .comment > li {
+    margin-top: 20px;
+    }
+    
+    .comment-id, .comment-date {
+        line-height: 9px;
+        background-color: #5b82a6;
+        font-size: 20px;
+        border: 1px #8cb68d;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    
+    .comment-id + li {
+        background-color: whitesmoke;
+        font-size: 20px;
+        border: 2px solid #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    /* ----------------입력되는 댓글 -----------*/
+
+
+.drawer {
+    flex-grow: 1; 
+    text-align: center;
+    font-size: 1.5rem; 
+}
+#logo{
+    width: 8vw; 
+}
+/* 오른쪽 로고 */
+#exit-logo {
+    width: 8vw; 
+    height: auto;
+    margin-right: 2vw;
+    position: relative; 
+    z-index: 1; 
 }
 
-* {
-margin: 0;
-padding: 0;
+#exit_btn {
+    position: absolute;
+    top: 80%; 
+    right: 5.9vw; 
+    transform: translateY(-50%); 
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.7); 
+    border-radius: 10px;
+    font-size: 1.0vw;
+    border: none;
+    cursor: pointer;
+    color: white;
+    z-index: 2; 
+}
+.submit:hover {
+    background-color: rgb(184, 178, 178);
 }
 
+/* .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container > h2{
+    margin-top: 3vw;
+} */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 5vw;
+    margin-bottom: 5vw;
+}
+#image_box {
+    position: relative;
+    width: 100%;  
+    height: 33vw; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+#canvas{
+    position: absolute;
+    width: 800px;
+    aspect-ratio: 1 / 0.785; 
+    z-index: 10;
+}
+#displayedImage{
+    position: absolute;
+    width: 80%;
+    top: 6vw;
+    object-fit: cover;
+}
+.explain{
+    text-align: center;
+    width: 800px;
+}
 ul, li {
 list-style: none;
 }

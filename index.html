@@ -5,33 +5,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
-  <div class="button-container">
     <div class="left-container">
       <img
-        src="./images/DALL_E_2025-02-12_10.25.42_-_A_hand-drawn_style_title_that_reads__NINJA_SKETCH__in_a_playful__artistic_brushstroke_font._The_text_should_have_an_organic__slightly_rough_feel__rese-removebg-preview.png"
+        src="./images/logo_noback/logo_noback.001.png"
         id="Ninja">
-      <button id="logout_btn">로그아웃</button>
-      <button id="mypage_detail">내 정보 보기</button>
-    </div>
-    <div class="logined_User"></div>
-    <button id="music_btn">🎵</button>
-    <img class="draw" src="./images/start.png"></img>
-  </div>
-  <div>
-    <div class="content-container">
-      <div class="cc-container">
-        진행중 그림
-        <div id="images_content"></div>
-        완료된 그림
-        <div id="completed_images_content"></div>
+      <div class="user_box">
+        <div class="logined_User"></div>
+        <div>
+          <button id="mypage_detail">내 정보 보기</button>
+          <button id="logout_btn">로그아웃</button>
+          <button id="music_btn" >🎵</button>
+        </div>
       </div>
       <div id="ranking_list_container"></div>
+      <div><img class="draw" src="./images/brush_edit_v2/brush_edit_v2.001.png"></img></div>
+      
+  </div>
+  <div class="content-container">
+    <div class="cc-container">
+      <div id="images_content">
+        <h3>정답을 맞춰주세요 !</h3>
+        <img src="./images/1739647143620.png" alt="배경 이미지">
+        <div id="images_content_box">
+
+        </div>
+      </div>
+      <div id="completed_images_content">
+        <h3>정답을 맞춘 그림이에요 !</h3>
+        <img src="./images/1739647143620.png" alt="배경 이미지">
+        <div id="completed_images_content_box"></div> 
+      </div>
     </div>
+  </div>
+
 </body>
 <script src="index.js"></script>
 

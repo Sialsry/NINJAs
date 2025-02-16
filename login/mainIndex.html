@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class = "items">
-        <div></div> <!--로고 담을 공간-->
-        <h4>Login</h4>
-        <input type="text" placeholder="아이디를 입력하세요.">
-        <input type="password" placeholder="비밀번호를 입력하세요">
-        <button id = "login_btn">로그인</button>
-        <button id = "signin_btn">회원가입</button>
+<body id="background">
+    <div class="main_logo_v1">
+        <img src="./images/main_logo_v1/main_logo_v1.001.png" alt="">
     </div>
-    
+    <div class="items">
+        <h4>Login</h4>
+        <input type="text" id="login_id" placeholder="아이디를 입력하세요.">
+        <input type="password" id="login_password" placeholder="비밀번호를 입력하세요">
+
+        <button id="login_btn">로그인</button>
+        <button id="signin_btn">회원가입</button>
+    </div>
     <script src="./index.js"></script>
 </body>
+
 </html>

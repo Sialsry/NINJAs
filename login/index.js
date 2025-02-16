@@ -19,7 +19,7 @@ const showSignupSuccessPopup = (nickname) => {
 
     popupFin.innerHTML = `
         <div class="popup_fin_content">
-            <h3>${nickname}님, 회원가입이 완료되었습니다!</h3>
+            <h3>" ${nickname} "님, 회원가입이 완료되었습니다!</h3>
             <button id="return_login">로그인 페이지로 돌아가기</button>
         </div>
     `;
@@ -154,15 +154,14 @@ const signinPopup = () => {
     document.getElementById("close_popup").addEventListener("click", () => {
         popup.remove();
     });
-
 };
 
 
 
 // 로그인 화면
 const loginUser = () => {
-    const userIdInput = document.querySelector('input[placeholder="아이디를 입력하세요."]');
-    const passwordInput = document.querySelector('input[placeholder="비밀번호를 입력하세요"]');
+    const userIdInput = document.getElementById("login_id")
+    const passwordInput = document.getElementById("login_password")
 
     const userid = userIdInput.value.trim();
     const password = passwordInput.value.trim();
@@ -201,6 +200,6 @@ const loginUser = () => {
     //path=/; << 쿠키가 웹사이트 전체에서 사용가능하도록 
 
 
-    window.location.href = "/index.html"; 
+    window.location.href = "http://127.0.0.1:5502/index.html"; 
 };
 
