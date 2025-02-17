@@ -1,164 +1,154 @@
-body{
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(/images/background.jpg);
     background-size: cover;
     background-position: center;
-    /* position: relative; */
-    font-family: 'Roboto', sans-serif;
+    height: 100vh;
 }
-/* #items{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-} */
 
+/* 로고 컨테이너 */
 #logo_container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 20px;
-    position: relative; /* 부모 요소 기준으로 정렬 */
+    padding: 1vw 2vw;
+    position: relative;
 }
+
 .content-container {
     display: flex;
     justify-content: space-between;
     margin-right: 10vw;
 }
 
+/* 댓글 박스 */
 .comment {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    padding: 30px;
-    width: 600px;
+    padding: 2vw;
+    width: 40vw;
     margin: 0 auto;
     background-color: rgba(112, 140, 169, 0.5);
-    border: 2px solid rgba(85, 121, 158, 0.5);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-/* -----------입력창------------ */
+    border: 0.2vw solid rgba(85, 121, 158, 0.5);
+    border-radius: 1.5vw;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+}
+
+/* 입력창 */
 .ps-box {
     display: block;
     position: relative;
-    width: 80%;
-    height: 50%;
-    padding: 10px 14px;
+    width: 65%;
+    padding: 0vw 0.5vw;
     background-color: #888;
     box-sizing: border-box;
-    border: 2px solid #09629c;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .ps-box > input {
+    border-radius: 0.5vw;
+}
+
+.ps-box > input {
     outline: none;
-    }
-    
-    .int {
+}
+
+/* 입력 필드 */
+.int {
     display: block;
-    position: relative;
     width: 100%;
-    height: 30px;
-    padding: 0 6px;
-    line-height: 30px;
-    font-size: 15px;
+    height: 3vw;
+    padding: 0 0.5vw;
+    font-size: 1vw;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 1.5vw;
     border: none;
-    }
-    
-    .btn {
+}
+
+/* 버튼 */
+.btn {
     width: 20%;
-    /* padding: 18px 0 16px;     */
     text-align: center;
     box-sizing: border-box;
     text-decoration: none;
     background-color: #333;
     color: white;
-    font-size: 20px;
+    font-size: 1.5vw;
     cursor: pointer;
-    border: 2px solid #09629c;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-/* ----------------입력창-----------*/
-/* ----------------입력되는 댓글 -----------*/
-
-    .comment > li {
-    margin-top: 20px;
-    }
-    
-    .comment-id, .comment-date {
-        line-height: 9px;
-        background-color: #5b82a6;
-        font-size: 20px;
-        border: 1px #8cb68d;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    
-    .comment-id + li {
-        background-color: whitesmoke;
-        font-size: 20px;
-        border: 2px solid #ffffff;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    /* ----------------입력되는 댓글 -----------*/
-
-
-.drawer {
-    flex-grow: 1; 
-    text-align: center;
-    font-size: 1.5rem; 
-}
-#logo{
-    width: 8vw; 
-}
-/* 오른쪽 로고 */
-#exit-logo {
-    width: 8vw; 
-    height: auto;
-    margin-right: 2vw;
-    position: relative; 
-    z-index: 1; 
+    border: 0.2vw solid #09629c;
+    border-radius: 1.5vw;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
 }
 
-#exit_btn {
-    position: absolute;
-    top: 80%; 
-    right: 5.9vw; 
-    transform: translateY(-50%); 
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.7); 
-    border-radius: 10px;
-    font-size: 1.0vw;
-    border: none;
-    cursor: pointer;
-    color: white;
-    z-index: 2; 
-}
-.submit:hover {
+.btn:hover {
     background-color: rgb(184, 178, 178);
 }
 
-/* .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* 입력된 댓글 스타일 */
+.comment > li {
+    margin-top: 2vw;
 }
-.container > h2{
-    margin-top: 3vw;
-} */
-.container{
+
+.comment-id, .comment-date {
+    line-height: 1.5vw;
+    background-color: #5b82a6;
+    font-size: 1.5vw;
+    border: 0.1vw solid #8cb68d;
+    border-radius: 1.5vw;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+}
+
+/* 개별 댓글 스타일 */
+.comment-id + li {
+    background-color: whitesmoke;
+    font-size: 1.5vw;
+    border: 0.2vw solid #ffffff;
+    border-radius: 1.5vw;
+    box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 스타일 */
+.drawer {
+    flex-grow: 1; 
+    text-align: center;
+    font-size: 2vw;
+}
+
+#logo {
+    width: 8vw;
+}
+
+/* 오른쪽 로고 */
+#exit-logo {
+    width: 8vw;
+    height: auto;
+    margin-right: 2vw;
+    position: relative;
+    z-index: 1;
+}
+
+/* 나가기 버튼 */
+#exit_btn {
+    position: absolute;
+    top: 80%;
+    right: 5.9vw;
+    transform: translateY(-50%);
+    padding: 0.5vw 1vw;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1vw;
+    font-size: 1vw;
+    border: none;
+    cursor: pointer;
+    color: white;
+    z-index: 2;
+}
+
+/* 컨텐츠 박스 */
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,194 +156,143 @@ body{
     margin-left: 5vw;
     margin-bottom: 5vw;
 }
+
+/* 이미지 박스 */
 #image_box {
     position: relative;
-    width: 100%;  
-    height: 33vw; 
+    width: 100%;
+    height: 33vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; 
+    overflow: hidden;
 }
-#canvas{
+
+#canvas {
     position: absolute;
-    width: 800px;
-    aspect-ratio: 1 / 0.785; 
+    width: 50vw;
+    aspect-ratio: 1 / 0.785;
     z-index: 10;
 }
-#displayedImage{
+
+#displayedImage {
     position: absolute;
     width: 80%;
     top: 6vw;
     object-fit: cover;
 }
-.explain{
+
+.explain {
     text-align: center;
-    width: 800px;
-}
-ul, li {
-list-style: none;
+    width: 50vw;
 }
 
+/* 댓글 스타일 */
 .comment {
-display: flex;
-flex-direction: column;
-flex-wrap: nowrap;
-padding: 30px;
-width: 600px;
-margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    width: 40vw;
+    margin: 0 auto;
 }
 
 .comment > li {
-margin-top: 20px;
+    margin-top: 2vw;
 }
 
-.comment > li:nth-child(1) {
-margin: 0;
-}
-
-.comment .comment-form > form > h4 {
-width: 100%;
-margin: 14px 0;
-}
-
+/* 댓글 폼 */
 .comment-form > form {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
+/* 댓글 작성 박스 */
 .ps-box {
-display: block;
-position: relative;
-width: 80%;
-height: 50%;
-border: 1px solid #777;
-padding: 10px 14px;
-background-color: #888;
-box-sizing: border-box;
+    display: block;
+    position: relative;
+    width: 65%;
+    padding: 0vw 0.5vw;
+    background-color: #888;
+    box-sizing: border-box;
+    border-radius: 0.5vw;
 }
 
-.ps-box > input {
-outline: none;
-}
-
-.int {
-display: block;
-position: relative;
-width: 100%;
-height: 30px;
-padding: 0 6px;
-line-height: 30px;
-font-size: 15px;
-box-sizing: border-box;
-}
-
-.btn {
-width: 20%;
-padding: 18px 0 16px;
-text-align: center;
-box-sizing: border-box;
-text-decoration: none;
-border: none;
-background-color: #333;
-color: white;
-font-size: 14px;
-}
-
+/* 댓글 리스트 */
 .comment-row {
-width: 100%;
-display: flex;
-height: 50px;
-padding: 3px 6px;
+    width: 100%;
+    display: flex;
+    height: 4vw;
+    padding: 0.3vw 0.6vw;
 }
 
 .comment-row li {
-border: 1px solid;
-padding: 20px 0;
-text-overflow: ellipsis;
-white-space: nowrap;
-word-wrap: break-word;
-overflow: hidden;
+    border: 0.1vw solid;
+    padding: 1vw 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
+/* 댓글 아이디 */
 .comment-row li:nth-child(1) {
-width: 15%;
-text-align: center;
+    width: 25%;
+    text-align: center;
+    border-radius: 0.3vw; /* 둥근 정도 줄이기 */
+    padding: 0.5vw 1vw;
 }
+
+/* 댓글 내용 */
 .comment-row li:nth-child(2) {
-width: 50%;
-padding: 20px 8px;
-display: flex;
-justify-content: space-between;
-align-items: center;
+    width: 55%;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.3vw; /* 기존보다 덜 둥글게 */
 }
+
+/* 댓글 날짜 */
 .comment-row li:nth-child(3) {
-width: 35%;
-text-align: center;
+    width: 35%;
+    text-align: center;
+    border-radius: 0.3vw; /* 기존보다 덜 둥글게 */
+    padding: 0.5vw 1vw;
 }
 
-
-
-
-.comment-update-btn {
-width: 250px;
-display: inline-block;
-
-text-overflow: ellipsis;
-white-space: nowrap;
-word-wrap: break-word;
-overflow: hidden;
-}
-
-
+/* 댓글 삭제 버튼 */
 .comment-delete-btn {
-position: relative;
-width: 24px;
-height: 24px;
-display: inline-block;
+    position: relative;
+    width: 2vw;
+    height: 2vw;
+    display: inline-block;
+    border-radius: 0.3vw; /* 둥근 정도 줄이기 */
 }
 
 .comment-delete-btn::before,
 .comment-delete-btn::after {
-content: "";
-display: block;
-position: absolute;
-width: 100%;
-height: 4px;
-background-color: red;
-top: 50%;
-left: 50%;
-border-radius: 2px;
-transform: translate(-50%, -50%) rotate(-45deg);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.4vw;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+    border-radius: 0.2vw;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .comment-delete-btn::before {
-transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.comment-update-cancel {
-position: relative;
-width: 24px;
-height: 24px;
-display: inline-block;
+.comment {
+    list-style: none; 
 }
 
-.comment-update-cancel::before,
-.comment-update-cancel::after {
-content: "";
-display: block;
-position: absolute;
-width: 100%;
-height: 4px;
-background-color: blue;
-top: 50%;
-left: 50%;
-border-radius: 2px;
-transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.comment-update-cancel::after {
-transform: translate(-50%, -50%) rotate(45deg);
+.comment li {
+    list-style: none; 
 }

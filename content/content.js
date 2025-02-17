@@ -17,7 +17,6 @@ exitBtn.onclick = () => {
 
 const imageSrc = getQueryParam("image");
 let images = JSON.parse(localStorage.getItem("images")) || [];
-
 if (imageSrc) {
     document.getElementById("displayedImage").src = images[parseInt(imageSrc)-1].src;
     document.querySelector('.drawer').innerHTML = `${images[parseInt(imageSrc)-1].drawer} 님의 그림 무슨 그림일까요?`;

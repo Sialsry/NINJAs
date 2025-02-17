@@ -18,55 +18,55 @@ body {
 
 .items {
     background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 3vw; /* 40px -> 3vw */
+    border-radius: 1vw; /* 12px -> 1vw */
+    box-shadow: 0 0.6vw 1.2vw rgba(0, 0, 0, 0.2); /* 8px 16px -> vw 변환 */
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
+    max-width: 35vw; /* 500px -> 반응형 */
     width: 90%;
 }
 
 .main_logo_v1 > img {
     width: 80%;
-    max-width: 600px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    max-width: 42vw; /* 600px -> 42vw */
+    margin-bottom: 1.5vw;
+    margin-top: 1vw;
 }
 
 .items > h4 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2vw; /* 2rem -> 2vw */
+    margin-bottom: 1.5vw;
     color: #333;
 }
 
 #iden_style {
-    font-size: 1.1rem;
+    font-size: 1.2vw; /* 1.1rem -> 1.2vw */
     margin-bottom: 1.5vw;
 }
 
 .items input[type="text"],
 .items input[type="password"] {
     width: 100%;
-    max-width: 280px;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
+    max-width: 18vw; /* 280px -> 18vw */
+    padding: 1vw; /* 12px -> 1vw */
+    margin: 0.6vw 0;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.5vw;
+    font-size: 1vw;
 }
 
 .items button {
     width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    margin: 10px 0;
+    max-width: 19vw; /* 300px -> 19vw */
+    padding: 1vw;
+    margin: 0.8vw 0;
     background-color: #474747;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
@@ -74,16 +74,17 @@ body {
 .items button:hover {
     background-color: #303030;
 }
+
 #go_to_main {
     width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    margin-top: 10px;
+    max-width: 19vw;
+    padding: 1vw;
+    margin-top: 0.8vw;
     background-color: #474747;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
@@ -91,6 +92,7 @@ body {
 #go_to_main:hover {
     background-color: #303030;
 }
+
 .popup,
 .popup_finish,
 .nicknamePopup,
@@ -101,10 +103,10 @@ body {
     transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.95);
     width: 90%;
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 28vw; /* 400px -> 28vw */
+    padding: 1.5vw;
+    border-radius: 0.8vw;
+    box-shadow: 0 0.6vw 1.2vw rgba(0, 0, 0, 0.3);
     z-index: 1000;
     animation: fadeInScale 0.3s ease;
 }
@@ -120,30 +122,30 @@ body {
 .nicknamePopup h3,
 .check_popup h3,
 .newNinckname_input h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.6vw;
+    margin-bottom: 1vw;
     color: #333;
 }
 
 .nicknamePopup input[type="text"],
 .nicknamePopup input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
+    padding: 0.8vw;
+    margin: 0.6vw 0;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.5vw;
+    font-size: 1vw;
 }
 
 .nicknamePopup button {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 0.8vw;
+    margin: 0.8vw 0;
     background-color: #474747;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
@@ -155,8 +157,8 @@ body {
 .error_message,
 .loginError_message {
     color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
+    font-size: 0.9vw;
+    margin-top: 0.4vw;
     display: none;
 }
 
@@ -173,8 +175,8 @@ body {
 
 .popup_finish {
     width: 90%;
-    max-width: 600px;
-    height: 300px;
+    max-width: 42vw; /* 600px -> 42vw */
+    height: 20vw; /* 300px -> 20vw */
 }
 
 .popup_fin_content {
@@ -184,21 +186,21 @@ body {
 }
 
 .popup_fin_content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    margin-top: 80px;
+    font-size: 1.5vw;
+    margin-bottom: 1.5vw;
+    margin-top: 5vw;
     color: #333;
 }
 
 .popup_fin_content button {
     width: 70%;
-    padding: 10px;
-    margin: 90px 0;
+    padding: 1vw;
+    margin: 5vw 0;
     background-color: #474747;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.5vw;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1vw;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
@@ -212,32 +214,32 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    gap: 10px; 
+    gap: 0.7vw;
     width: 100%;
-    max-height: 300px; 
+    max-height: 20vw;
     margin: 0 auto;
     overflow-y: auto;
     overflow-x: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 1vw;
 }
 
 .my_images {
-    width: calc(50% - 10px); 
-    height: 150px;
-    aspect-ratio: 1/1; 
+    width: calc(50% - 0.7vw);
+    height: 10vw;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-y: hidden;
-
 }
+
 #my_images_box ::-webkit-scrollbar{
-    width: 6px; 
+    width: 0.4vw; 
 }
 
 #my_images_box ::-webkit-scrollbar-thumb{
     background: rgba(255, 255, 255, 0.3); 
-    border-radius: 3px; 
+    border-radius: 0.3vw; 
 }
 
 #my_images_box ::-webkit-scrollbar-track{
@@ -248,9 +250,9 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 0.6vw;
     transition: transform 0.2s ease-in-out;
-    border: #303030 1px solid;
+    border: #303030 0.1vw solid;
 }
 
 .my_images img:hover {
